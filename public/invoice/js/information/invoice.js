@@ -33,6 +33,7 @@
 
   $('.add-form').submit(function(e) {
     e.preventDefault();
+    $('.lds-spinner').fadeIn();
     var formData = new FormData();
     formData.append('file', document.getElementsByClassName('new-pdf')[0].files[0]);
     formData.append('payment', $('.new-payment').val());
@@ -47,6 +48,7 @@
     request.open('POST', '/information/invoice_add');        
     request.onreadystatechange = function() {
       if (request.readyState === 4) {
+        $('.lds-spinner').fadeOut();
         var response = JSON.parse(request.responseText);
         if(response.isSuccess == true){
           loadAllInvoices();
@@ -95,7 +97,6 @@
     if(admin.type == 0) return;
     $('.invoice-table').off();
     $('.invoice-table tbody tr').on('dblclick', function() {
-      console.log('here');
       for(var i = 0; i < invoice_list.length; i++) {
         if(
           (invoice_list[i].payment == $($(this).find('td')[0]).html()) &&
@@ -125,6 +126,7 @@
 
   $('.update-form').submit(function(e) {
     e.preventDefault();
+    $('.lds-spinner').fadeIn();
     var formData = new FormData();
     formData.append('file', document.getElementsByClassName('update-pdf')[0].files[0]);
     formData.append('payment', $('.update-payment').val());
@@ -139,6 +141,7 @@
     request.open('POST', '/information/invoice_update');
     request.onreadystatechange = function() {
       if (request.readyState === 4) {
+        $('.lds-spinner').fadeOut();
         var response = JSON.parse(request.responseText);
         if(response.isSuccess == true){
           $('.update-invoice').fadeOut();
