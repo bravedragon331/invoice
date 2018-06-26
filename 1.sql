@@ -44,6 +44,25 @@ insert  into `auth`(`id`,`user`,`page`,`r`,`w`,`d`,`status`,`create_at`) values
 (8,'3413002b-dbda-47e3-a09c-e4c67c857951',5,1,1,1,0,'2018-06-26 10:11:42'),
 (9,'a2d57b4d-e921-463e-aba5-5c04bfc9dcf0',1,1,1,1,1,'2018-06-26 10:22:48');
 
+/*Table structure for table `dato` */
+
+DROP TABLE IF EXISTS `dato`;
+
+CREATE TABLE `dato` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usrid` varchar(100) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+/*Data for the table `dato` */
+
+insert  into `dato`(`id`,`usrid`,`name`,`title`) values 
+(11,'a2d57b4d-e921-463e-aba5-5c04bfc9dcf0','2u2qw4jivtc8r5.pdf','1.pdf'),
+(12,'a2d57b4d-e921-463e-aba5-5c04bfc9dcf0','2u2rfojivteh6f.jpg','1.jpg'),
+(13,'a2d57b4d-e921-463e-aba5-5c04bfc9dcf0','2u2mtkjivtf7a3.pdf','1.pdf');
+
 /*Table structure for table `empresa` */
 
 DROP TABLE IF EXISTS `empresa`;
@@ -62,13 +81,14 @@ CREATE TABLE `empresa` (
   `documento` varchar(50) DEFAULT NULL,
   `usrid` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `empresa` */
 
 insert  into `empresa`(`id`,`empresa`,`nit`,`tipo`,`numero`,`folio`,`libro`,`nombre`,`ddmmaa`,`direccion`,`documento`,`usrid`) values 
 (1,'2','1','1','1','1','1','1','1','1','1','363c5c7e-082c-4c95-b7fd-32843deeb7b7'),
-(3,'1','1','1','','','1','','','','','a2d57b4d-e921-463e-aba5-5c04bfc9dcf0');
+(3,'1','1','1','','','1','','','','','a2d57b4d-e921-463e-aba5-5c04bfc9dcf0'),
+(4,'12','12','','','','','','','','','0a24cf2e-e819-4a8d-97e4-298e29c70374');
 
 /*Table structure for table `invoice` */
 
@@ -91,7 +111,7 @@ CREATE TABLE `invoice` (
 /*Data for the table `invoice` */
 
 insert  into `invoice`(`id`,`payment`,`amount`,`transfer`,`receipt`,`invoice`,`invoicedate`,`total`,`usrid`,`filename`) values 
-(2,'2','1','2','1','1','2018-06-26','2','a2d57b4d-e921-463e-aba5-5c04bfc9dcf0',NULL),
+(2,'2','1','2','1','1','2018-06-26','2','a2d57b4d-e921-463e-aba5-5c04bfc9dcf0','2c8w7rrk9cjivow4qj.pdf'),
 (3,'1','1','1','1','1','2018-06-26','1','0a24cf2e-e819-4a8d-97e4-298e29c70374','2c8w7rrfi8jivn7146.pdf');
 
 /*Table structure for table `publicidad` */
