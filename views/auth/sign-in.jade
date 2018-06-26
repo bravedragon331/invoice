@@ -28,6 +28,10 @@ html(lang='en')
       .row.padding-15
         .col-sm-2.col-md-2.col-lg-4
         .col-sm-8.col-md-8.col-lg-4
+          - if(message) {
+              .flash
+                | #{message}
+          - }
           form#frmSignin(action='/login' method='post' onsubmit='return validateForm()')
             .form-group.has-feedback
               span.alert-email.alert(style='color: red;') Please input correct email.
@@ -73,6 +77,12 @@ html(lang='en')
       });
 
       $('.alert-email').hide();
+      var message = $( '.flash' );
+      if ( message.length ) {
+          setTimeout( function() {
+              message.fadeOut( 'slow' );
+          }, 3000 );
+      }
 
       function validateForm(){        
         var email = $('#Email').val();

@@ -1,5 +1,5 @@
 exports.login = function(req, res){   
-  res.render('auth/sign-in');
+  res.render('auth/sign-in', { message: req.flash('loginMessage')});
 }
 
 exports.signup = function(req, res){
