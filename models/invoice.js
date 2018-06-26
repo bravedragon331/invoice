@@ -31,7 +31,7 @@ var addInvoice = function(body, filename, callback) {
 
 var updateInvoice = function(body, filename, callback) {
   console.log(body)
-  if(filename == null) {
+  if(filename != null) {
     db.query(`
       UPDATE invoice SET ? WHERE id = ?
     `, [{payment: body.payment, amount: body.amount, transfer: body.transfer, receipt: body.receipt,
