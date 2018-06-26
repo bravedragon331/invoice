@@ -1,0 +1,94 @@
+extends ../layout
+block content
+  section.content.dashboard
+    .page-heading
+      h1 #{__("Invoice list of Customer")}
+    .page-body
+      .panel.panel-default.add-invoice(style='display:none')
+        .panel-heading #{__("Create Invoice")}
+        .panel-body
+          form.add-form(action='/information/invoice_add' method='post')
+            .form-group.col-md-3
+              label.display-block #{__("Payment#")}
+              input.form-control.new-payment(type='text', placeholder='Payment#', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Paid Amount")}
+              input.form-control.new-amount(type='text', placeholder='Paid Amount', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Transfer#")}
+              input.form-control.new-transfer(type='text', placeholder='Transfer#', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Receipt#")}
+              input.form-control.new-receipt(type='text', placeholder='Receipt#', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Invoice#")}
+              input.form-control.new-invoice(type='text', placeholder='Invoice#', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Invoice Date")}
+              input.form-control.new-invoicedate(type='text', placeholder='Invoice Date', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Total Amount#")}
+              input.form-control.new-total(type='text', placeholder='Total Amount', required='')
+            .form-group.col-md-3
+              label.display-block #{__("File#")}
+              input.form-control.new-pdf(type='file', accept=".pdf", placeholder='Choose File', required='')
+            .form-group.clearfix.col-md-12
+              button.btn.btn-sm.btn-success.pull-right(type='submit') #{__("Add Invoice")}
+      .panel.panel-default.update-invoice(style='display:none')
+        .panel-heading #{__("Update Invoice")}
+        .panel-body
+          form.update-form(action='/information/invoice_update' method='post')
+            input(type="hidden").old-id
+            .form-group.col-md-3
+              label.display-block #{__("Payment#")}
+              input.form-control.update-payment(type='text', placeholder='Payment#', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Paid Amount")}
+              input.form-control.update-amount(type='text', placeholder='Paid Amount', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Transfer#")}
+              input.form-control.update-transfer(type='text', placeholder='Transfer#', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Receipt#")}
+              input.form-control.update-receipt(type='text', placeholder='Receipt#', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Invoice#")}
+              input.form-control.update-invoice(type='text', placeholder='Invoice#', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Invoice Date")}
+              input.form-control.update-invoicedate(type='text', placeholder='Invoice Date', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Total Amount#")}
+              input.form-control.update-total(type='text', placeholder='Total Amount', required='')
+            .form-group.col-md-3
+              label.display-block #{__("File#")}
+              input.form-control.update-pdf(type='file', accept=".pdf", placeholder='Choose File')
+            .form-group.clearfix.col-md-12
+              button.btn.btn-sm.btn-success.pull-right(type='submit') #{__("Update Invoice")}
+      .panel.panel-default
+        - if(admin.type == 1){
+            .panel-heading          
+              button.btn.btn-success.new-button(type='button')
+                i.fa.fa-plus
+                |  #{__("Create Invoice")}
+        - }
+        .panel-body
+          table.table.table-striped.table-hover.dataTable.invoice-table
+            thead
+              tr
+                th #{__("Payment#")}
+                th #{__("Paid Amount")}
+                th #{__("Transfer#")}
+                th #{__("Receipt#")}
+                th #{__("Invoice#")}
+                th #{__("Invoice Date")}
+                th #{__("Total Amount")}
+                th #{__("Download")}
+            tbody              
+block script
+  script(src='/assets/plugins/moment/moment.js')
+  script(src='/assets/plugins/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js')
+  script.
+    var usr = (!{JSON.stringify(usr)});
+    var admin = (!{JSON.stringify(admin)});
+  script(src='/invoice/js/information/invoice.js')

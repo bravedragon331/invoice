@@ -74,5 +74,20 @@
 	"Minimo Pedido": "Minimo Pedido",
 	"Tipo Tarjeta": "Tipo Tarjeta",
 	"Accept": "Accept",
-	"Publish": "Publish"
+	"Publish": "Publish",
+	"Invoice list of Customer": "Invoice list of Customer",
+	"Create New Invoice": "Create New Invoice",
+	"Payment#": "Payment#",
+	"Paid Amount": "Paid Amount",
+	"Transfer#": "Transfer#",
+	"Receipt#": "Receipt#",
+	"Invoice#": "Invoice#",
+	"Total Amount#": "Total Amount#",
+	"File#": "File#",
+	"Add Invoice": "Add Invoice",
+	"Update Invoice": "Update Invoice",
+	"Add New Invoice": "Add New Invoice",
+	"Invoice Date": "Invoice Date",
+	"Total Amount": "Total Amount",
+	"Create Invoice": "Create Invoice"
 }

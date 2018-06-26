@@ -7,9 +7,13 @@
   });
   $('.new-button').on('click', function(){      
     $('.add-term').fadeIn();
-    $('.update-term').fadeIn();
+    $('.update-term').fadeOut();
   })
   $('.new-revisedate').datetimepicker({
+    format: 'YYYY-MM-DD',
+    showClear: true
+  });
+  $('.update-revisedate').datetimepicker({
     format: 'YYYY-MM-DD',
     showClear: true
   });  

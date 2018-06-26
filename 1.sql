@@ -70,6 +70,30 @@ insert  into `empresa`(`id`,`empresa`,`nit`,`tipo`,`numero`,`folio`,`libro`,`nom
 (1,'2','1','1','1','1','1','1','1','1','1','363c5c7e-082c-4c95-b7fd-32843deeb7b7'),
 (3,'1','1','1','','','1','','','','','a2d57b4d-e921-463e-aba5-5c04bfc9dcf0');
 
+/*Table structure for table `invoice` */
+
+DROP TABLE IF EXISTS `invoice`;
+
+CREATE TABLE `invoice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `payment` varchar(50) DEFAULT NULL,
+  `amount` varchar(50) DEFAULT NULL,
+  `transfer` varchar(50) DEFAULT NULL,
+  `receipt` varchar(50) DEFAULT NULL,
+  `invoice` varchar(50) DEFAULT NULL,
+  `invoicedate` varchar(50) DEFAULT NULL,
+  `total` varchar(50) DEFAULT NULL,
+  `usrid` varchar(100) DEFAULT NULL,
+  `filename` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+/*Data for the table `invoice` */
+
+insert  into `invoice`(`id`,`payment`,`amount`,`transfer`,`receipt`,`invoice`,`invoicedate`,`total`,`usrid`,`filename`) values 
+(2,'2','1','2','1','1','2018-06-26','2','a2d57b4d-e921-463e-aba5-5c04bfc9dcf0',NULL),
+(3,'1','1','1','1','1','2018-06-26','1','0a24cf2e-e819-4a8d-97e4-298e29c70374','2c8w7rrfi8jivn7146.pdf');
+
 /*Table structure for table `publicidad` */
 
 DROP TABLE IF EXISTS `publicidad`;

@@ -38,5 +38,19 @@
 	"Presentacion de Empresa": "Presentacion de Empresa",
 	"Confirmacion de Domicilio": "Confirmacion de Domicilio",
 	"Minimo Pedido": "Minimo Pedido",
-	"Tipo Tarjeta": "Tipo Tarjeta"
+	"Tipo Tarjeta": "Tipo Tarjeta",
+	"Invoice list of Customer": "Invoice list of Customer",
+	"Create Invoice": "Create Invoice",
+	"Payment#": "Payment#",
+	"Paid Amount": "Paid Amount",
+	"Transfer#": "Transfer#",
+	"Receipt#": "Receipt#",
+	"Invoice#": "Invoice#",
+	"Invoice Date": "Invoice Date",
+	"Total Amount#": "Total Amount#",
+	"File#": "File#",
+	"Add Invoice": "Add Invoice",
+	"Update Invoice": "Update Invoice",
+	"Total Amount": "Total Amount",
+	"Download": "Download"
 }

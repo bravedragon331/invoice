@@ -26,12 +26,12 @@
               ((usr.type == 1) || (res.list[i].p_id != null))?
               `<p style="margin-bottom: 0px">
                 <a target="_blank" class="btn btn-success btn-sm" href="/information/solicitud?id=`+res.list[i].id+`">SOLICITUD</a>
-                <a target="_blank" class="btn btn-success btn-sm" href="/information/invoice?name=`+res.list[i].id+`">INVOICE</a>
-                <a target="_blank" class="btn btn-success btn-sm" href="/information/datos?name=`+res.list[i].id+`">DATOS</a>
+                <a target="_blank" class="btn btn-success btn-sm" href="/information/invoice?id=`+res.list[i].id+`">INVOICE</a>
+                <a target="_blank" class="btn btn-success btn-sm" href="/information/datos?id=`+res.list[i].id+`">DATOS</a>
               </p>`:
               `<p style="margin-bottom: 0px">
-                <a target="_blank" class="btn btn-success btn-sm" href="/information/invoice?name=`+res.list[i].id+`">INVOICE</a>
-                <a target="_blank" class="btn btn-success btn-sm" href="/information/datos?name=`+res.list[i].id+`">DATOS</a>
+                <a target="_blank" class="btn btn-success btn-sm" href="/information/invoice?id=`+res.list[i].id+`">INVOICE</a>
+                <a target="_blank" class="btn btn-success btn-sm" href="/information/datos?id=`+res.list[i].id+`">DATOS</a>
               </p>`
             ])
           }
