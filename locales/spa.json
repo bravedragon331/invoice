@@ -89,5 +89,8 @@
 	"Add New Invoice": "Add New Invoice",
 	"Invoice Date": "Invoice Date",
 	"Total Amount": "Total Amount",
-	"Create Invoice": "Create Invoice"
+	"Create Invoice": "Create Invoice",
+	"Datos of Customer": "Datos of Customer",
+	"File UPLOAD": "File UPLOAD",
+	"Drop files here or click to upload.": "Drop files here or click to upload."
 }

@@ -1,0 +1,36 @@
+extends ../layout
+block link
+  link(rel="stylesheet", href="/assets/plugins/lightbox2/dist/css/lightbox.css")
+  link(href='/assets/plugins/dropzone/dist/dropzone.css', rel='stylesheet')
+block content
+  section.content.dashboard
+    .page-heading
+      h1 #{__("Datos of Customer")}
+    .page-body
+      .panel.panel-default
+        .panel-heading
+          | #{__("File UPLOAD")}
+        .panel-body(style='display: none;')
+          form#frmFileUpload.dropzone(action='/information/dato_upload', method='post', enctype='multipart/form-data')
+            input(type="hidden", value='#{usr.id}', name='id')
+            .dz-message
+              .drag-icon-cph
+                i.fa.fa-hand-pointer-o
+              h3 #{__("Drop files here or click to upload.")}
+            .fallback
+              input(name='file', type='file', multiple='')
+
+      .panel.panel-default
+        .panel-heading Images
+        .panel-body
+          .list-unstyled.row.clearfix.images            
+      .panel.panel-default
+        .panel-heading Documents
+        .panel-body.pdfs          
+block script
+  script.
+    var usr = (!{JSON.stringify(usr)});
+  script(src="/assets/plugins/lightbox2/dist/js/lightbox.js")
+  script(src="/assets/js/pages/medias/carousel.js")
+  script(src='/assets/plugins/dropzone/dist/dropzone.js')
+  script(src='/invoice/js/information/dato.js')

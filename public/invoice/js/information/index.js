@@ -24,14 +24,14 @@
               res.list[i].contractdate, res.list[i].acceptdate,
               res.list[i].status?'<span style="color:blue">Activated</span>':'<span style="color:red">Deactivated</span>',
               ((usr.type == 1) || (res.list[i].p_id != null))?
-              `<p style="margin-bottom: 0px">
-                <a target="_blank" class="btn btn-success btn-sm" href="/information/solicitud?id=`+res.list[i].id+`">SOLICITUD</a>
-                <a target="_blank" class="btn btn-success btn-sm" href="/information/invoice?id=`+res.list[i].id+`">INVOICE</a>
-                <a target="_blank" class="btn btn-success btn-sm" href="/information/datos?id=`+res.list[i].id+`">DATOS</a>
+              `<p style="margin-bottom: 0px;">
+                <a target="_blank" class="btn btn-success btn-sm mt-5" href="/information/solicitud?id=`+res.list[i].id+`">SOLICITUD</a>
+                <a target="_blank" class="btn btn-success btn-sm mt-5" href="/information/invoice?id=`+res.list[i].id+`">INVOICE</a>
+                <a target="_blank" class="btn btn-success btn-sm mt-5" href="/information/datos?id=`+res.list[i].id+`">DATOS</a>
               </p>`:
               `<p style="margin-bottom: 0px">
-                <a target="_blank" class="btn btn-success btn-sm" href="/information/invoice?id=`+res.list[i].id+`">INVOICE</a>
-                <a target="_blank" class="btn btn-success btn-sm" href="/information/datos?id=`+res.list[i].id+`">DATOS</a>
+                <a target="_blank" class="btn btn-success btn-sm mt-5" href="/information/invoice?id=`+res.list[i].id+`">INVOICE</a>
+                <a target="_blank" class="btn btn-success btn-sm mt-5" href="/information/datos?id=`+res.list[i].id+`">DATOS</a>
               </p>`
             ])
           }

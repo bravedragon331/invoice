@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 var information = require('../controller/information');
 var invoice = require('../controller/invoice');
+var dato = require('../controller/dato');
 
 router.use('/', auth.requireLogin, function(req, res, next) {
   next();
@@ -30,5 +31,9 @@ router.post('/invoice_remove', invoice.invoice_remove);
 router.get('/invoice/download/detail', function(req, res) {
   res.redirect('/uploads/invoice/' + req.query.name);
 })
+
+router.get('/datos', dato.index);
+router.post('/dato_upload', dato.upload);
+router.post('/dato_load', dato.load);
 
 module.exports = router;

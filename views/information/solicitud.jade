@@ -92,7 +92,7 @@ block content
                   tr
                     td.w-200.bg-e7 Direccion de Recibir documento
                     td(colspan="5").documento
-              - if((admin.id == usr.id) && (usr.acceptdate == null)) {
+              - if((admin.type == 1) || (usr.acceptdate == null)) {
                   button.btn.btn-sm.btn-success.pull-right.update-tab-1(style='margin: 25px 15px 0px 0px;') #{__("Update Data")}
               - }
           div(role="tabpanel" class="tab-pane fade" id="tab2_1")
@@ -124,7 +124,7 @@ block content
                     td.dpi
                     td.w-200.bg-e7 TEL./CEL.
                     td.tel
-              - if((admin.id == usr.id) && (usr.acceptdate == null)) {
+              - if((admin.type == 1) || (usr.acceptdate == null)) {
                   button.btn.btn-sm.btn-success.pull-right.update-tab-2(style='margin: 25px 15px 0px 0px;') #{__("Update Data")}
               - }
           div(role="tabpanel" class="tab-pane fade" id="tab3_1")
@@ -162,7 +162,7 @@ block content
                     td(colspan="3").cuenta_nombre
                     td.w-200.bg-e7 Fetcha de Pago
                     td.pago
-              - if((admin.id == usr.id) && (usr.acceptdate == null)) {
+              - if((admin.type == 1) || (usr.acceptdate == null)) {
                   button.btn.btn-sm.btn-success.pull-right.update-tab-3(style='margin: 25px 15px 0px 0px;') #{__("Update Data")}
               - }              
           div(role="tabpanel" class="tab-pane fade" id="tab4_1")
@@ -238,7 +238,7 @@ block content
                     td.minimo
                     td.w-200.bg-e7 Tipo Tarjeta
                     td.tarjeta
-              - if((admin.id == usr.id) && (usr.acceptdate == null)) {
+              - if((admin.type == 1) || (usr.acceptdate == null)) {
                   button.btn.btn-sm.btn-success.pull-right.update-tab-4(style='margin: 25px 15px 0px 0px;') #{__("Update Data")}
               - }              
 block script
