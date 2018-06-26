@@ -1,0 +1,177 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Notice from Invoice
+    // Favicon
+    link(rel='icon', href='favicon.ico', type='image/x-icon')
+    // Google Fonts
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet', type='text/css')
+    // Bootstrap Core Css
+    link(href='/assets/plugins/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    // Animate.css Css
+    link(href='/assets/plugins/animate-css/animate.min.css', rel='stylesheet')
+    // Font Awesome Css
+    link(href='/assets/plugins/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    // iCheck Css
+    link(href='/assets/plugins/iCheck/skins/flat/_all.css', rel='stylesheet')
+    // Switchery Css
+    link(href='/assets/plugins/switchery/dist/switchery.min.css', rel='stylesheet')
+    // Metis Menu Css
+    link(href='/assets/plugins/metisMenu/dist/metisMenu.min.css', rel='stylesheet')
+    // Jquery Datatables Css
+    link(href='/assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
+    // Pace Loader Css
+    link(href='/assets/plugins/pace/themes/white/pace-theme-flash.css', rel='stylesheet')
+    // Select 2 Css
+    link(href='/assets/plugins/select2/dist/css/select2.min.css', rel='stylesheet')
+
+    // Custom Css
+    link(href='/assets/css/style.min.css', rel='stylesheet')
+    // AdminBSB Themes. You can choose a theme from css/themes instead of get all themes
+    link(href='/assets/css/themes/allthemes.min.css', rel='stylesheet')
+    // Custom Css
+    link(href='/assets/css/custom.css', rel='stylesheet')
+    // Loader Css
+    link(href='/assets/css/loader.css', rel='stylesheet')
+    block link
+
+  body
+    .all-content-wrapper
+      // Top Bar
+      header
+        nav.navbar.navbar-default          
+          .container-fluid
+            .navbar-header
+              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar-collapse')
+                i.material-icons swap_vert
+              a.left-toggle-left-sidebar.js-left-toggle-left-sidebar(href='javascript:void(0);')
+                i.material-icons menu
+              // Logo
+              a.navbar-brand(href='/')
+                span.logo-minimized AS
+                span.logo INVOICE
+              // #END# Logo
+            #navbar-collapse.collapse.navbar-collapse
+              ul.nav.navbar-nav
+                li
+                  a.toggle-left-sidebar.js-toggle-left-sidebar(href='javascript:void(0);')
+                    i.material-icons menu
+              ul.nav.navbar-nav.navbar-right               
+                // Fullscreen Request
+                li
+                  a.fullscreen.js-fullscreen(href='javascript:void(0);')
+                    i.material-icons fullscreen
+                // #END# Fullscreen Request                
+                // User Menu
+                li.dropdown.user-menu
+                  a.dropdown-toggle(href='javascript:void(0);', data-toggle='dropdown')
+                    img(src='/assets/images/avatars/face2.jpg', alt='User Avatar')
+                    span.hidden-xs #{user.email}
+                  ul.dropdown-menu
+                    li.header
+                      img(src='/assets/images/avatars/face2.jpg', alt='User Avatar')
+                      .user
+                        | #{user.email}
+                        .title Invoice Management                    
+                    li.footer
+                      .row.clearfix
+                        .col-xs-5
+                          a.btn.btn-default.btn-sm.btn-block Log Off
+                        .col-xs-2
+                        .col-xs-5
+                          a.btn.btn-default.btn-sm.btn-block(href='/logout') #{__('Log Out')}
+                // #END# User Menu                
+      // #END# Top Bar      
+      aside.sidebar
+        nav.sidebar-nav
+          ul.metismenu
+            li.title
+              | INVOICE MANAGEMENT
+            li.m-dashboard1
+              a(href='/information')
+                i.material-icons business_center
+                span.nav-label #{__("Informacion de Cliente")}
+            li.m-dashboard1
+              a(href='/termcondition')
+                i.material-icons announcement
+                span.nav-label #{__("Terminos y condiciones")}
+            li.title
+              | ADMINISTRATION
+            li.m-dashboard1
+              a(href='/users')
+                i.material-icons people
+                span.nav-label #{__("User Management")}
+      block content      
+      // Footer
+      footer
+        .container-fluid
+          .row.clearfix
+            .col-sm-6
+              p
+                b #{__("© 2018-2019 Invoice")}
+                | #{__(". All rights reserved.")}
+            .col-sm-6.align-right
+      // #END# Footer
+
+      //Page Loader
+      .lds-spinner
+        div
+        div
+        div
+        div
+        div
+        div
+        div
+        div
+        div
+        div
+        div
+        div
+    // Jquery Core Js
+    script(src='/assets/plugins/jquery/dist/jquery.min.js')
+    // JQuery UI Js
+    script(src='/assets/plugins/jquery-ui/jquery-ui.min.js')
+    // Bootstrap Core Js
+    script(src='/assets/plugins/bootstrap/dist/js/bootstrap.min.js')
+    // Pace Loader Js
+    script(src='/assets/plugins/pace/pace.min.js')
+    // Screenfull Js
+    script(src='/assets/plugins/screenfull/dist/screenfull.min.js')
+    // Metis Menu Js
+    script(src='/assets/plugins/metisMenu/dist/metisMenu.min.js')
+    // Jquery Slimscroll Js
+    script(src='/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js')
+    // Switchery Js
+    script(src='/assets/plugins/switchery/dist/switchery.min.js')
+    
+    // JQuery Datatables Js
+    script(src='/assets/plugins/DataTables/media/js/jquery.dataTables.min.js')
+    script(src='/assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js')
+    script(src='/assets/plugins/DataTables/extensions/export/dataTables.buttons.min.js')
+    script(src='/assets/plugins/DataTables/extensions/export/buttons.bootstrap.min.js')
+    script(src='/assets/plugins/DataTables/extensions/export/buttons.flash.min.js')
+    script(src='/assets/plugins/DataTables/extensions/export/jszip.min.js')
+    script(src='/assets/plugins/DataTables/extensions/export/pdfmake.min.js')
+    script(src='/assets/plugins/DataTables/extensions/export/vfs_fonts.js')
+    script(src='/assets/plugins/DataTables/extensions/export/buttons.html5.min.js')
+    script(src='/assets/plugins/DataTables/extensions/export/buttons.print.min.js')
+
+    // Select 2 Js
+    script(src='/assets/plugins/select2/dist/js/select2.min.js')
+
+    // Custom Js
+    script(src='/assets/js/admin.js')
+
+    script(type='text/javascript').
+      $(document).ready(function(){
+        $("#leftmenu").load("leftmenu.html")
+        $('.js-example-basic-multiple').select2();
+        
+        $('.lds-spinner').fadeOut();
+      });
+
+    block script

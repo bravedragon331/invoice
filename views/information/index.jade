@@ -1,0 +1,28 @@
+extends ../layout
+block link
+  link(href='/invoice/css/information/index.css', rel='stylesheet')
+block content
+  section.content.dashboard
+    .page-heading
+      h1 #{__("Informacion de Cliente")}
+    .page-body
+      div(style='overflow: auto;')
+        table.table.table-striped.table-hover.dataTable.information-table
+          thead
+            tr
+              th #{__("No")}
+              th #{__("Empresa")}
+              th #{__("NIT#")}
+              th #{__("Nombre")}
+              th #{__("Email")}
+              th #{__("Contact Date")}
+              th #{__("Accepted Date")}
+              th #{__("Activate")}
+              th(style="width: 300px") #{__("Action")}
+          tbody
+block script
+  script.
+    var usr = (!{JSON.stringify(user)});
+    var role = (!{JSON.stringify(role)});
+    console.log(role);
+  script(src='/invoice/js/information/index.js')

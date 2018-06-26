@@ -1,0 +1,73 @@
+extends ../layout
+block content
+  section.content.dashboard
+    .page-heading
+      h1 #{__("User list")}
+    .page-body
+      .panel.panel-default.add-user(style='display:none;')
+        .panel-heading #{__("Create New User")}
+        .panel-body
+          form.add-form(action='/users/user_add' method='post')            
+            .form-group.clearfix.col-md-4
+              label.display-block #{__("First Name")}
+              input.form-control.firstname(type='text', placeholder='First Name', required='')
+            .form-group.clearfix.col-md-4
+              label.display-block #{__("Last Name")}
+              input.form-control.lastname(type='text', placeholder='Last Name', required='')
+            .form-group.clearfix.col-md-4
+              label.display-block #{__("Email")}
+              input.form-control.email(type='email', placeholder='Email', required='')
+            //- .form-group.clearfix.col-md-3
+            //-   label.display-block #{__("Empresa")}
+            //-   input.form-control.Empresa(type='text', placeholder='Empresa')
+            //- .form-group.clearfix.col-md-3
+            //-   label.display-block #{__("NIT#")}
+            //-   input.form-control.nit(type='text', placeholder='NIT#')
+            .form-group.clearfix.col-md-4
+              label.display-block #{__("Contact Date")}
+              input.form-control.contractdate(type='text', placeholder='Contact Date')
+            .form-group.clearfix.col-md-4
+              label.display-block #{__("User Type")}
+              select.type-bar(style='width: 100%;')
+                option(value='0') Normal
+                option(value='1') Admin
+            .form-group.clearfix.col-md-4
+              label.display-block #{__("Status")}
+              select.status-bar(style='width: 100%;')
+                option(value='1') Active
+                option(value='0') Inactive
+            .form-group.clearfix.col-md-12
+              button.btn.btn-sm.btn-success.pull-right(type='submit') #{__("Add User")}
+      .panel.panel-default
+        - for(var ppp = 0; ppp < role.length; ppp++){
+          - if(role[ppp].page == 6 && role[ppp].w == 1){
+              .panel-heading          
+                button.btn.btn-success.new-button(type='button')
+                  i.fa.fa-plus
+                  |  #{__("Add New User")}
+          - }
+        - }          
+        .panel-body
+          table.table.table-striped.table-hover.dataTable.user-table
+            thead
+              tr
+                th #{__("First Name")}
+                th #{__("Last Name")}
+                th #{__("Email")}
+                th #{__("Contract Date")}
+                th #{__("User Type")}
+                th #{__("Status")}
+            tbody
+              - for (var i = 0; i < users.length; ++i) {
+                  tr                    
+                    td #{users[i].firstname}
+                    td #{users[i].lastname}                    
+                    td #{users[i].email}
+                    td #{users[i].contractdate}
+                    td #{users[i].type?'Admin': 'Normal'}                    
+                    td #{users[i].status?'Active':'In-Active'}
+              - }              
+block script
+  script(src='/assets/plugins/moment/moment.js')
+  script(src='/assets/plugins/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js')
+  script(src='/invoice/js/organization/users.js')

@@ -1,0 +1,309 @@
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 1.25em; height: 1.25em;
+  border: 2px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: .1em; left: .1em;
+  font-size: 1.4em;
+  line-height: 0.8;
+  color: #09ad7e;
+  transition: all .2s;
+  font-family: Helvetica, Arial, sans-serif;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+/* accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  border: 2px solid #4778d9;
+}
+
+/* hover style just for information */
+label:hover:before {
+  border: 2px solid #4778d9!important;
+}
+
+.signin-form-area, .signup-form-area{
+  margin: auto;
+  padding-top: 175px !important;
+}
+
+.pr-0{
+  padding-right: 0px;
+}
+.pl-0{
+  padding-left: 0px;
+}
+
+tr{
+  cursor: pointer;
+}
+
+.delete-icon{
+  color: #626161;
+  position: relative;
+  display: block;
+  top: -100px;
+  left: 97px;
+  cursor: pointer;
+}
+.legendLabel{
+  color: black;
+}
+.c_box{
+  position: inherit !important;  
+  left: 0px !important;
+}
+.lightyellow{
+  background: #ffd68c!important;
+}
+.lightblue {
+  background: lightblue !important;
+}
+.lightgreen {
+  background: lightgreen !important;
+}
+div.scrollableContainer { 
+  position: relative; 
+}
+div.scrollingArea { 
+  height: 80vh; 
+  overflow-y: scroll;
+}
+.minScrollingArea{
+  height: 68px;
+  overflow: auto;
+}
+
+.b-white {
+  background: white;
+}
+.left-text {
+  text-align: left;
+}
+.right-text {
+  text-align: right;
+}
+
+table.scroll thead {
+  width: initial !important;
+}
+table.scroll tbody {
+  width: initial !important;
+  position: fixed;
+}
+
+table.scroll tbody {
+  height: 60vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.order-total {
+  background: #0069fb !important;
+}
+.order-total td{
+  color: white !important;
+  border-color: #0069fb !important;
+}
+
+/* Dashboard2 */
+.mt-30 {
+  margin-top: 30px;
+}
+.mt-15 {
+  margin-top: 15px;
+}
+.t-r{
+  text-align: right;
+}
+.dashboard2 * {
+  color: white;
+  font-weight: bold;
+}
+.dashboard2 .page-heading {
+  margin-top: 30px;
+  text-align: center;
+}
+.dashboard2 .page-heading h1 {
+  font-size: 2em;
+  font-weight: 800;
+}
+.dashboard2 .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.dashboard2 .page-heading input {
+  font-size: 2em;
+  font-weight: 800;
+  width: 160px;
+}
+.dashboard2 .date-wrapper span {
+  cursor: pointer;
+  vertical-align: middle;
+}
+.dashboard2 .pr-20 {
+  padding-right: 20px;
+}
+.dashboard2 .pl-20 {
+  padding-left: 20px;
+}
+.dashboard2 .large {
+  display: inline-block;
+  font-size: 3em;
+}
+.dashboard2 .small {
+  display: inline-block;
+}
+.dashboard2 .chart-title {
+  color: white;
+  font-size: 1.5em;
+  font-weight: 800;
+}
+.dashboard2 #chart_4,#chart_bar text{
+  fill: white !important;  
+}
+.dashboard2 #chart_bar text {
+  fill: white !important;
+}
+.dashboard2 .table-title {
+  font-size: 1.5em;
+  font-weight: 800;
+}
+.dashboard2 .dataTables_length select {
+  border: solid 1px white !important;
+}
+.dashboard2 .dataTables_filter input {
+  border: solid 1px white !important;
+}
+.dashboard2 table {
+  min-height: 150px;
+}
+.dashbaord2 .caption {
+  font-weight: 800;
+}
+.dashboard2 i {
+  font-size: 40px;
+  vertical-align: bottom;
+}
+.dashboard2 .previous-date {
+  display: inline-block;
+}
+.dashboard2 .next-date {
+  display: inline-block;
+}
+.dashboard2 .date {
+  vertical-align: text-top;
+}
+.dashboard2 .date-wrapper {
+  vertical-align: super;
+}
+
+/* Table Header Fix */
+.table-scroll {
+	position: relative;
+	width:100%;
+	margin: auto;
+	display:table;
+}
+.table-wrap {
+	width: 100%;
+	display:block;
+	height: 300px;
+	overflow: auto;
+	position:relative;
+	z-index:1;
+}
+.table-scroll table {
+	width: 100%;
+	margin: auto;
+	border-collapse: separate;
+	border-spacing: 0;
+}
+.faux-table table {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	pointer-events: none;
+}
+.faux-table table + table {
+	top: auto;
+	bottom: 0;
+}
+.faux-table table tbody, .faux-table  tfoot {
+	visibility: hidden;
+	border-color: transparent;
+}
+.faux-table table + table thead {
+	visibility: hidden;
+	border-color: transparent;
+}
+.faux-table table + table  tfoot{
+	visibility:visible;
+	border-color:#000;
+}
+.faux-table thead th, .faux-table tfoot th, .faux-table tfoot td {
+	background: #ccc;
+}
+.faux-table {
+	position:absolute;
+	top:0;
+	right:0;
+	left:0;
+	bottom:0;
+	overflow-y:scroll;
+}
+.faux-table thead, .faux-table tfoot, .faux-table thead th, .faux-table tfoot th, .faux-table tfoot td {
+	position:relative;
+	z-index:2;
+}
+.red {
+  color: red !important;
+}

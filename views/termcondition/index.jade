@@ -1,0 +1,68 @@
+extends ../layout
+block content
+  section.content.dashboard
+    .page-heading
+      h1 #{__("Terms and Conditions list")}
+    .page-body
+      .panel.panel-default.add-term(style='display:none')
+        .panel-heading #{__("Create New Term")}
+        .panel-body
+          form.add-form(action='/termcondtion/term_add' method='post')
+            .form-group.col-md-3
+              label.display-block #{__("Version")}
+              input.form-control.new-version(type='text', placeholder='Version', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Subject")}
+              input.form-control.new-subject(type='text', placeholder='Subject', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Revised Date")}
+              input.form-control.new-revisedate(type='text', placeholder='Revised Date', required='')
+            .form-group.col-md-3
+              label.display-block #{__("File")}
+              input.form-control.new-pdf(type='file', accept=".pdf", placeholder='Choose File', required='')
+            .form-group.clearfix.col-md-12
+              button.btn.btn-sm.btn-success.pull-right(type='submit') #{__("Add Term")}
+      .panel.panel-default.update-term(style='display:none')
+        .panel-heading #{__("Update Term")}
+        .panel-body
+          form.update-form(action='/termcondtion/term_update' method='post')
+            input.old-id(type='hidden', required)
+            .form-group.col-md-3
+              label.display-block #{__("Version")}
+              input.form-control.update-version(type='text', placeholder='Version', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Subject")}
+              input.form-control.update-subject(type='text', placeholder='Subject', required='')
+            .form-group.col-md-3
+              label.display-block #{__("Revised Date")}
+              input.form-control.update-revisedate(type='text', placeholder='Revised Date', required='')
+            .form-group.col-md-3
+              label.display-block #{__("File")}
+              input.form-control.update-pdf(type='file', accept=".pdf", placeholder='Choose File', required='')
+            .form-group.clearfix.col-md-12              
+              button.btn.btn-sm.btn-success.pull-right(type='submit', style='margin-left: 25px;') #{__("Update Term")}
+              .btn.btn-sm.btn-success.pull-right.remove-term #{__("Remove Term")}
+              
+      .panel.panel-default
+        - for(var ppp = 0; ppp < role.length; ppp++){
+          - if(role[ppp].page == 5 && role[ppp].w == 1){
+              .panel-heading          
+                button.btn.btn-success.new-button(type='button')
+                  i.fa.fa-plus
+                  |  #{__("Add New Terms")}
+          - }
+        - }          
+        .panel-body
+          table.table.table-striped.table-hover.dataTable.term-table
+            thead
+              tr
+                th #{__("Version")}
+                th #{__("Subject")}
+                th #{__("Revised Date")}
+                th #{__("Download")}
+            tbody              
+block script
+  script(src='/assets/plugins/dropzone/dist/dropzone.js')
+  script(src='/assets/plugins/moment/moment.js')
+  script(src='/assets/plugins/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js')
+  script(src='/invoice/js/termcondition/index.js')

@@ -1,0 +1,248 @@
+extends ../layout
+block link
+  link(href='/invoice/css/information/solicitud.css', rel='stylesheet')
+block content
+  section.content.dashboard
+    .page-heading
+      h1 #{__("Informacion de Cliente")}
+      - if((usr.p_id == null) && (admin.type == 1)) {
+          button.btn.btn-sm.btn-success.pull-right.publish(style="margin: 15px 25px") #{__("Publish")}
+      - } else if((usr.p_id != null) && (admin.id == usr.id) && (usr.acceptdate == null)) {
+          button.btn.btn-sm.btn-success.pull-right.accept(style="margin: 15px 25px") #{__("Accept")}
+      - }      
+    .page-body
+        ul.nav.nav-tabs
+          li(role="presentation" class="active")
+            a(href="#tab1_1" data-toggle="tab") Dato de Empresa
+          li(role="presentation")
+            a(href="#tab2_1" data-toggle="tab") Dato de Representante Legal
+          li(role="presentation")
+            a(href="#tab3_1" data-toggle="tab") Dato de Page / Transferencia
+          li(role="presentation")
+            a(href="#tab4_1" data-toggle="tab") Dato de Publicidad
+        .tab-content
+          div(role="tabpanel" class="tab-pane fade in active" id="tab1_1")
+            .panel.panel-default.update-1(style='display:none;')
+              .panel-heading #{__("Update Data")}
+              .panel-body
+                form.form-1(action='' method='post')            
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Empresa")}
+                    input.form-control.empresa(type='text', placeholder='Empresa')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("NIT#")}
+                    input.form-control.nit(type='text', placeholder='NIT#')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Tipo")}
+                    input.form-control.tipo(type='text', placeholder='Tipo')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Numero de Registro")}
+                    input.form-control.numero(type='text', placeholder='Numero de Registro')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Folio")}
+                    input.form-control.folio(type='text', placeholder='Empresa')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Libro")}
+                    input.form-control.libro(type='text', placeholder='Libro')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Nombre")}
+                    input.form-control.nombre(type='text', placeholder='Nombre')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("DD/MM/AA")}
+                    input.form-control.ddmmaa(type='text', placeholder='DD/MM/AA')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Direccion")}
+                    input.form-control.direccion(type='text', placeholder='Direccion')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Direccion de Repcibir documento")}
+                    input.form-control.documento(type='text', placeholder='Documento')
+                  .form-group.clearfix.col-md-12
+                    button.btn.btn-sm.btn-success.pull-right(type='submit') #{__("Save Data")}
+            div(style="overflow: auto;")
+              table.table-1
+                thead
+                  tr
+                    th(colspan="6") Dato de Empresa
+                tbody
+                  tr
+                    td.w-200.bg-e7 Empresa
+                    td.empresa
+                    td.w-200.bg-e7 NIT#
+                    td.nit
+                    td.w-200.bg-e7 Tipo
+                    td.tipo
+                  tr
+                    td.w-200.bg-e7 Numero de Registro
+                    td.numero
+                    td.w-200.bg-e7 Folio
+                    td.folio
+                    td.w-200.bg-e7 Libro #
+                    td.libro
+                  tr
+                    td.w-200.bg-e7 Nombre
+                    td.nombre
+                    td.w-200.bg-e7 DD/MM/AA
+                    td(colspan="3").ddmmaa
+                  tr
+                    td.w-200.bg-e7 Direccion
+                    td(colspan="5").direccion
+                  tr
+                    td.w-200.bg-e7 Email
+                    td(colspan="5").email
+                  tr
+                    td.w-200.bg-e7 Direccion de Recibir documento
+                    td(colspan="5").documento
+              - if((admin.id == usr.id) && (usr.acceptdate == null)) {
+                  button.btn.btn-sm.btn-success.pull-right.update-tab-1(style='margin: 25px 15px 0px 0px;') #{__("Update Data")}
+              - }
+          div(role="tabpanel" class="tab-pane fade" id="tab2_1")
+            .panel.panel-default.update-2(style='display:none;')
+              .panel-heading #{__("Update Data")}
+              .panel-body
+                form.form-2(action='', method = 'post')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Nombre")}
+                    input.form-control.nombre(type='text', placeholder='Nombre')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("DPI#")}
+                    input.form-control.dpi(type='text', placeholder='DPI#')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("TEL./CEL.")}
+                    input.form-control.tel(type='text', placeholder='TEL./CEL.')
+                  .form-group.clearfix.col-md-12
+                    button.btn.btn-sm.btn-success.pull-right(type='submit') #{__("Save Data")}
+            div(style="overflow: auto;")
+              table.table-2
+                thead
+                  tr
+                    th(colspan="6") Dato de Representante Legal
+                tbody
+                  tr
+                    td.w-200.bg-e7 Nombre
+                    td.nombre
+                    td.w-200.bg-e7 DPI#
+                    td.dpi
+                    td.w-200.bg-e7 TEL./CEL.
+                    td.tel
+              - if((admin.id == usr.id) && (usr.acceptdate == null)) {
+                  button.btn.btn-sm.btn-success.pull-right.update-tab-2(style='margin: 25px 15px 0px 0px;') #{__("Update Data")}
+              - }
+          div(role="tabpanel" class="tab-pane fade" id="tab3_1")
+            .panel.panel-default.update-3(style='display:none;')
+              .panel-heading #{__("Update Data")}
+              .panel-body
+                form.form-3(action='', method = 'post')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Nombre de Banco")}
+                    input.form-control.banco(type='text', placeholder='Nombre de Banco')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Numero de Cuenta")}
+                    input.form-control.cuenta_numero(type='text', placeholder='Numero de Cuenta')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Nombre de Cuenta")}
+                    input.form-control.cuenta_nombre(type='text', placeholder='Nombre de Cuenta')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Fetcha de Pago")}
+                    input.form-control.pago(type='text', placeholder='Fetcha de Pago')
+                  .form-group.clearfix.col-md-12
+                    button.btn.btn-sm.btn-success.pull-right(type='submit') #{__("Save Data")}
+            div(style="overflow: auto;")
+              table.table-3
+                thead
+                  tr
+                    th(colspan="6") Dato de Page / Transferencia
+                tbody
+                  tr
+                    td.w-200.bg-e7 Nombre de Banco
+                    td.banco
+                    td.w-200.bg-e7 Numero de Cuenta
+                    td(colspan="3").cuenta_numero
+                  tr
+                    td.w-200.bg-e7 Nombre de Cuenta
+                    td(colspan="3").cuenta_nombre
+                    td.w-200.bg-e7 Fetcha de Pago
+                    td.pago
+              - if((admin.id == usr.id) && (usr.acceptdate == null)) {
+                  button.btn.btn-sm.btn-success.pull-right.update-tab-3(style='margin: 25px 15px 0px 0px;') #{__("Update Data")}
+              - }              
+          div(role="tabpanel" class="tab-pane fade" id="tab4_1")
+            .panel.panel-default.update-4(style='display:none;')
+              .panel-heading #{__("Update Data")}
+              .panel-body
+                form.form-4(action='', method = 'post')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Empresa")}
+                    input.form-control.empresa(type='text', placeholder='Empresa')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Tel")}
+                    input.form-control.tel(type='text', placeholder='Tel')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Tipo")}
+                    input.form-control.tipo(type='text', placeholder='Tipo')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Horario de Servicio")}
+                    input.form-control.servicio(type='text', placeholder='Horario de Servicio')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Dia de descanso")}
+                    input.form-control.descanso(type='text', placeholder='Dia de descanso')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Direccion")}
+                    input.form-control.direccion(type='text', placeholder='Direccion')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Areas de Entrega a Domicilio")}
+                    input.form-control.domicilio(type='text', placeholder='Areas de Entrega a Domicilio')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Presentacion de Empresa")}
+                    input.form-control.presentacion(type='text', placeholder='Presentacion de Empresa')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Confirmacion de Domicilio")}
+                    input.form-control.confirmacion(type='text', placeholder='Confirmacion de Domicilio')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Minimo Pedido")}
+                    input.form-control.minimo(type='text', placeholder='Minimo Pedido')
+                  .form-group.clearfix.col-md-4
+                    label.display-block #{__("Tipo Tarjeta")}
+                    input.form-control.tarjeta(type='text', placeholder='Tipo Tarjeta')
+                  .form-group.clearfix.col-md-12
+                    button.btn.btn-sm.btn-success.pull-right(type='submit') #{__("Save Data")}
+            div(style="overflow: auto;")
+              table.table-4
+                thead
+                  tr
+                    th(colspan="6") Dato de Publicidad
+                tbody
+                  tr
+                    td.w-200.bg-e7 Empresa
+                    td.empresa
+                    td.w-200.bg-e7 Tel.
+                    td.tel
+                    td.w-200.bg-e7 Tipo
+                    td.tipo
+                  tr
+                    td.w-200.bg-e7 Horario de Servicio
+                    td.servicio
+                    td.w-200.bg-e7 Dia de descanso
+                    td(colspan="4").descanso
+                  tr
+                    td.w-200.bg-e7 Direccion
+                    td(colspan="5").direccion
+                  tr
+                    td.w-200.bg-e7 Areas de Entrega a Domicilio
+                    td.domicilio
+                    td.w-200.bg-e7 Presentacion de Empresa
+                    td(colspan="3").presentacion
+                  tr
+                    td.w-200.bg-e7 Confirmacion de Domicilio
+                    td.confirmacion
+                    td.w-200.bg-e7 Minimo Pedido
+                    td.minimo
+                    td.w-200.bg-e7 Tipo Tarjeta
+                    td.tarjeta
+              - if((admin.id == usr.id) && (usr.acceptdate == null)) {
+                  button.btn.btn-sm.btn-success.pull-right.update-tab-4(style='margin: 25px 15px 0px 0px;') #{__("Update Data")}
+              - }              
+block script
+  script.
+    var usr = (!{JSON.stringify(usr)});
+    var usr_id = usr.id;
+  script(src='/invoice/js/information/solicitud.js')
