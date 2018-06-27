@@ -17,6 +17,10 @@
 
     $('.type-bar').select2();
     $('.status-bar').select2();
+    $('.contractdate').datetimepicker({
+      format: 'YYYY-MM-DD',
+      showClear: true
+    });
   });
   $('.add-user').on('click', 'a.panel-close', function () {
     $(this).parents('.add-user').fadeOut();
