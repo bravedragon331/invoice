@@ -103,12 +103,14 @@ html(lang='en')
               a(href='/termcondition')
                 i.material-icons announcement
                 span.nav-label #{__("Terminos y condiciones")}
-            li.title
-              | #{__("ADMINISTRATION")}
-            li.m-dashboard1
-              a(href='/users')
-                i.material-icons people
-                span.nav-label #{__("User Management")}
+            - if((user.type == 1)) {
+                li.title
+                  | #{__("ADMINISTRATION")}
+                li.m-dashboard1
+                  a(href='/users')
+                    i.material-icons people
+                    span.nav-label #{__("User Management")}
+            - }
       block content      
       // Footer
       footer

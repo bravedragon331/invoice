@@ -73,6 +73,9 @@
           $('.term-table').dataTable().fnClearTable();
           $('.term-table').dataTable().fnAddData(tableData);
           $('.term-table').dataTable().fnDraw();
+          $('.term-table').DataTable()
+          .order( [ 2, 'desc' ] )
+          .draw();
           refreshEvent();
         } else {
           alert('Cannot load list. Please contact support team.')
