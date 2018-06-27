@@ -70,26 +70,26 @@
         usrid: usr.id
       },
       success: function(res) {
-        console.log(res);
         $('.lds-spinner').fadeOut();
         if(res.status) {
-          res.list.sort((a, b) => {
-            if(a.invoicedate > b.invoicedate) return 1;
-            else if(a.invoicedate == b.invoicedate) return 0;
-            else return -1;
-          })
           invoice_list = res.list;
+          invoice_list.sort(function(a, b){
+            return (a.invoicedate > b.invoicedate) ? -1 : ((b.invoicedate > a.invoicedate) ? 1 : 0);
+          })
           var tableData = [];
           if(invoice_list.length == 0) return;
-          for(var i = 0; i < res.list.length; i++) {
+          for(var i = 0; i < invoice_list.length; i++) {
             tableData.push([
-              res.list[i].payment, res.list[i].amount, res.list[i].transfer, res.list[i].receipt, res.list[i].invoice, res.list[i].invoicedate, res.list[i].total,
-              `<a target="_blank" class="btn btn-success btn-sm" href="/information/invoice/download/detail?name=`+res.list[i].filename+`">Download</a>`,
+              invoice_list[i].payment, invoice_list[i].amount, invoice_list[i].transfer, invoice_list[i].receipt, invoice_list[i].invoice, invoice_list[i].invoicedate, invoice_list[i].total,
+              `<a target="_blank" class="btn btn-success btn-sm" href="/information/invoice/download/detail?name=`+invoice_list[i].filename+`">Download</a>`,
             ]);
           }
           $('.invoice-table').dataTable().fnClearTable();
           $('.invoice-table').dataTable().fnAddData(tableData);
           $('.invoice-table').dataTable().fnDraw();
+          $('.invoice-table').DataTable()
+          .order( [ 5, 'desc' ] )
+          .draw();
           refreshEvent();
         } else {
           alert('Cannot load list. Please contact support team.')

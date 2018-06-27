@@ -158,13 +158,16 @@
           }
           $('.table-4 .confirmacion').html(data.confirmacion);
           $('.update-4 .minimo').html(data.minimo);
-          $('.table-4 .minimo').html(data.minimo);
-          if(data.tarjeta == 'Credito') {
+          $('.table-4 .minimo').html(data.minimo);          
+          if(data.tarjeta.indexOf('Credito') != -1) {
             $('#chb_11').prop('checked', true);
-            $('#chb_12').prop('checked', false);
           } else {
             $('#chb_11').prop('checked', false);
+          }
+          if(data.tarjeta.indexOf('Debito') != -1) {
             $('#chb_12').prop('checked', true);
+          } else {
+            $('#chb_12').prop('checked', false);
           }
           $('.table-4 .tarjeta').html(data.tarjeta);
         } else {
@@ -253,7 +256,9 @@
   $('.form-4').submit(function(e) {
     e.preventDefault();
     $('.lds-spinner').fadeIn();
-    console.log($('#chb_11').checked);
+    var tarjeta = '';
+    if($('#chb_11').is(':checked')) tarjeta += 'Credito ';
+    if($('#chb_12').is(':checked')) tarjeta += 'Debito ';
     $.ajax({
       url: '/information/solicitud/save_publicidad',
       type: 'POST',
@@ -268,7 +273,7 @@
         presentacion: $('.update-4 .presentacion').val(),
         confirmacion: $('#chb_21').is(':checked')?'Si':'No',
         minimo: $('.update-4 .minimo').val(),
-        tarjeta: $('#chb_11').is(':checked')?'Credito':'Debito',
+        tarjeta: tarjeta,
         usrid: usr_id
       },
       success: function(res) {
@@ -358,20 +363,20 @@
     }
   })
 
-  $('#chb_11').change(function() {
-    if(this.checked) {
-      $('#chb_12').prop('checked', false);
-    } else {
-      $('#chb_12').prop('checked', true);
-    }
-  });
-  $('#chb_12').change(function() {
-    if(this.checked) {
-      $('#chb_11').prop('checked', false);
-    } else {
-      $('#chb_11').prop('checked', true);
-    }
-  });
+  // $('#chb_11').change(function() {
+  //   if(this.checked) {
+  //     $('#chb_12').prop('checked', false);
+  //   } else {
+  //     $('#chb_12').prop('checked', true);
+  //   }
+  // });
+  // $('#chb_12').change(function() {
+  //   if(this.checked) {
+  //     $('#chb_11').prop('checked', false);
+  //   } else {
+  //     $('#chb_11').prop('checked', true);
+  //   }
+  // });
   $('#chb_21').change(function() {
     if(this.checked) {
       $('#chb_22').prop('checked', false);

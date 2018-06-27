@@ -1,5 +1,6 @@
 var bcrypt = require('bcrypt-nodejs');
 var uuidV4 = require('uuid/v4');
+var dateFormat = require('dateformat');
 
 var db     = require('./db');
 // Set up User class
@@ -172,13 +173,14 @@ var updateUserInfo = function(data, callback){
 
 var getAccept = function(id, callback) {
   const yyyymmdd  = function(date) {
-    var mm = date.getMonth() + 1; // getMonth() is zero-based
-    var dd = date.getDate();
+    return dateFormat(date, "yyyy mm dd hh:MM:ss TT");
+    // var mm = date.getMonth() + 1; // getMonth() is zero-based
+    // var dd = date.getDate();
 
-    return [date.getFullYear(),
-            (mm>9 ? '' : '0') + mm,
-            (dd>9 ? '' : '0') + dd
-    ].join('-');
+    // return [date.getFullYear(),
+    //         (mm>9 ? '' : '0') + mm,
+    //         (dd>9 ? '' : '0') + dd
+    // ].join('-');
   }
   db.query('UPDATE users SET ? WHERE id = ?',
     [{ acceptdate: yyyymmdd(new Date())}, id], function(err, user) {

@@ -1,0 +1,23 @@
+.title {
+  cursor: pointer;
+  margin-top: 5px;  
+  display: inline-block;
+  vertical-align: top;
+}
+.edit {
+  display: inline-block;
+  margin-left: 5px;
+  margin-top:8px;
+  font-size: 15px !important;
+  cursor: pointer;
+}
+.pdf-remove {
+  display: inline-block;
+  margin-left: 5px;
+  margin-top:8px;
+  font-size: 15px !important;
+  cursor: pointer;
+}
+.remove-img {
+  margin-right: 10px;
+}

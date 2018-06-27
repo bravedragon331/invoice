@@ -107,8 +107,8 @@ module.exports = function(app, passport) {
           mailOptions={
             to : req.body.Email,
             subject : "Reset your password",
-            html : "Hello,<br> You are receiving this email because you (or someone else) have requested the reset of the password for your account.<br>Please click on the following link, or paste this into your browser to complete the process:<br>"
-              + "<a href=" +link+">Click here to verify</a>"
+            html : "Hola,<br> Usted está recibiendo este correo electrónico porque usted (u otra persona) ha solicitado el restablecimiento de la contraseña de su cuenta. Haga clic en el siguiente enlace o pegue esto en su navegador para completar el proceso:<br>"
+              + "<a href=" +link+">Haga clic aquí para verificar</a>"
           };
           smtpTransport.sendMail(mailOptions, function(error, response){
             if(error){
@@ -137,7 +137,7 @@ module.exports = function(app, passport) {
       if(token == undefined){
         res.render('auth/exception', {text: 'Token is not existed or expired.'})
       }else{
-        res.render('reset', {id: id, token: token});
+        res.render('auth/reset', {id: id, token: token});
       }
     })    
   })

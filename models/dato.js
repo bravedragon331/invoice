@@ -32,7 +32,27 @@ var loadDato = function(id, callback) {
     callback(err, rows);
   })
 }
+var updateDato = function(body, callback) {
+  db.query(`UPDATE dato SET ? WHERE id = ?`, [
+    {
+      nombre: body.nombre, categoria: body.categoria, precio: body.precio, descripcion: body.descripcion
+    }, body.id
+  ], function(err) {    
+    return callback(err, true);
+  })
+}
+var removeDato = function(body, callback) {
+  db.query('DELETE FROM dato WHERE id = ?', [body.id], function(err) {
+    if(err) {
+      return callback(err);
+    } else {
+      return callback(null);
+    }
+  })
+}
 
 exports.addDocument = addDocument;
 exports.addImage = addImage;
 exports.loadDato = loadDato;
+exports.updateDato = updateDato;
+exports.removeDato = removeDato;

@@ -7,7 +7,7 @@ var path = require('path');
 var uniqid = require('uniqid');
 
 exports.index = function(req, res) {
-  res.render('termcondition/index', {role: res.role});
+  res.render('termcondition/index', {role: res.role, admin: req.user});
 }
 exports.term_add = function(req, res) {
   var form = new formidable.IncomingForm();

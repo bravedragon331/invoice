@@ -4,7 +4,7 @@ html(lang='en')
     meta(charset='utf-8')
     meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title Forget Password | Invoice
+    title #{__("Recuperar contraseña")} | Invoice
     link(rel='icon', href='favicon.ico', type='image/x-icon')
     // Google Fonts
     link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700', rel='stylesheet')
@@ -23,8 +23,8 @@ html(lang='en')
   body.sign-in-page
     .signin-form-area
       h1
-        b Invoice
-      .signin-top-info Recover password
+        b #{__("Contrato y Invoice")}
+      .signin-top-info #{__("Recuperar contraseña")}
       .row.padding-15
         .col-sm-2.col-md-2.col-lg-4
         .col-sm-8.col-md-8.col-lg-4
@@ -32,13 +32,13 @@ html(lang='en')
             .form-group.has-feedback
               span.alert-email.alert(style='color: red;') Please input correct email.
             .form-group.has-feedback
-              input#Email.form-control(type='email', placeholder='Email', name='Email', required='')
+              input#Email.form-control(type='email', placeholder='#{__("Correo electrónico")}', name='Email', required='')
               span.glyphicon.glyphicon-envelope.form-control-feedback            
             .form-group
-              button.btn.btn-success.btn-block.btn-flat(type='submit') Next
+              button.btn.btn-success.btn-block.btn-flat(type='submit') #{__("Siguiente")}
             .form-group
               a.pull-right(href='/login')
-                | Back to Login
+                | #{__("Atrás para iniciar sesión")}
                 i.fa.fa-unlock.m-l-5.font-14
         .col-sm-2.col-md-2.col-lg-4
     // Jquery Core Js

@@ -45,7 +45,7 @@ block content
               
       .panel.panel-default
         - for(var ppp = 0; ppp < role.length; ppp++){
-          - if(role[ppp].page == 5 && role[ppp].w == 1){
+          - if(role[ppp].page == 5 && role[ppp].w == 1 && (admin.type == 1)){
               .panel-heading          
                 button.btn.btn-success.new-button(type='button')
                   i.fa.fa-plus
@@ -62,6 +62,8 @@ block content
                 th #{__("Download")}
             tbody              
 block script
+  script.
+    var admin = (!{JSON.stringify(admin)});
   script(src='/assets/plugins/moment/moment.js')
   script(src='/assets/plugins/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js')
   script(src='/invoice/js/termcondition/index.js')

@@ -4,7 +4,7 @@ html(lang='en')
     meta(charset='utf-8')
     meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title Sign In | Invoice
+    title #{__("Iniciar sesión")} | Invoice
     link(rel='icon', href='favicon.ico', type='image/x-icon')
     // Google Fonts
     //- link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700', rel='stylesheet')
@@ -23,8 +23,8 @@ html(lang='en')
   body.sign-in-page
     .signin-form-area
       h1
-        b Contrato y Invoice
-      .signin-top-info Inicia sesión para comenzar tu sesión
+        b #{__("Contrato y Invoice")}
+      .signin-top-info #{__("Inicia sesión para comenzar tu sesión")}
       .row.padding-15
         .col-sm-2.col-md-2.col-lg-4
         .col-sm-8.col-md-8.col-lg-4
@@ -34,28 +34,28 @@ html(lang='en')
           - }
           form#frmSignin(action='/login' method='post' onsubmit='return validateForm()')
             .form-group.has-feedback
-              span.alert-email.alert(style='color: red;') Please input correct email.
+              span.alert-email.alert(style='color: red;') #{__("Please input correct email.")}
             .form-group.has-feedback
-              input#Email.form-control(type='email', placeholder='Email', name='Email', required='')
+              input#Email.form-control(type='email', placeholder='#{__("Correo electrónico")}', name='Email', required='')
               span.glyphicon.glyphicon-envelope.form-control-feedback
             .form-group.has-feedback
-              input#Password.form-control(type='password', placeholder='Password', name='Password', required='')
+              input#Password.form-control(type='password', placeholder='#{__("Contraseña")}', name='Password', required='')
               span.glyphicon.glyphicon-lock.form-control-feedback
-            .row
-              .col-xs-6
-                .checkbox.icheck
-                  input#r_1(type='checkbox', name='remember')
-                  label(for='r_1') Remember User
-              .col-xs-4.col-xs-offset-2
-                select.language-bar.lang(style='width: 100%;', name='lang')
-                  option(value='spa') Spanish
-                  option(value='kor') Korean
-                  option(value='eng') English                  
+            //- .row
+              //- .col-xs-6
+              //-   .checkbox.icheck
+              //-     input#r_1(type='checkbox', name='remember')
+              //-     label(for='r_1') #{__("Remember User")}
+              //- .col-xs-4.col-xs-offset-2
+              //-   select.language-bar.lang(style='width: 100%;', name='lang')
+              //-     option(value='spa') Spanish
+              //-     option(value='kor') Korean
+              //-     option(value='eng') English
             .form-group
-              button.btn.btn-success.btn-block.btn-flat(type='submit') Sign In
+              button.btn.btn-success.btn-block.btn-flat(type='submit') #{__("Iniciar sesión")}
             .form-group
               a.pull-right(href='/forget')
-                | Forgot Password
+                | #{__("Se te olvidó tu contraseña")}
                 i.fa.fa-unlock.m-l-5.font-14
               //- a(href='/signup')
               //-   i.fa.fa-user-circle-o.m-r-5

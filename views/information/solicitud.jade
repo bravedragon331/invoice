@@ -15,7 +15,7 @@ block content
           li(role="presentation")
             a(href="#tab2_1" data-toggle="tab") Dato de Representante Legal
           li(role="presentation")
-            a(href="#tab3_1" data-toggle="tab") Dato de Page
+            a(href="#tab3_1" data-toggle="tab") Dato de Pago
           li(role="presentation")
             a(href="#tab4_1" data-toggle="tab") Dato de Publicidad
           - if((usr.p_id != null) && (admin.id == usr.id) && (usr.acceptdate == null)) {
@@ -91,7 +91,7 @@ block content
                   tr
                     td.w-200.bg-e7 Email
                     td(colspan="2").email
-                    td(colspan="3" style="color:red;") ** Usuario es correo(clav envia por correo)
+                    td(colspan="3" style="color:red;") ** Usuario es correo(clave envia por correo)
                   tr
                     td.w-200.bg-e7 Direccion de Recibir documento
                     td(colspan="5").documento
@@ -214,7 +214,7 @@ block content
                     label.display-block #{__("Tipo Tarjeta")}
                     div
                       .checkbox.icheck
-                        input#chb_11(type='checkbox' checked='')
+                        input#chb_11(type='checkbox')
                         label(for='chb_11') Credito /
                       &nbsp 
                       .checkbox.icheck
@@ -267,7 +267,7 @@ block content
                     input#chb_31(type='checkbox')
                     label(for='chb_31') ACEPTADO
                 li
-                  p.p-accept Nota: La siguiente solicitud se regira bajo los terminos y condiciones, el cual podra ser vista y acceder facilmente para
+                  p.p-accept Nota: La siguiente solicitud se regira bajo los <a target = 'black' href="/termcondition">terminos y condiciones</a>, el cual podra ser vista y acceder facilmente para
                     | ser aceptada a traves de la pagina www.miugodo.com/vendedor
                   .checkbox.icheck
                     input#chb_32(type='checkbox')

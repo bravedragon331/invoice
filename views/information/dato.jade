@@ -2,6 +2,7 @@ extends ../layout
 block link
   link(rel="stylesheet", href="/assets/plugins/lightbox2/dist/css/lightbox.css")
   link(href='/assets/plugins/dropzone/dist/dropzone.css', rel='stylesheet')
+  link(href='/invoice/css/information/dato.css', rel='stylesheet')
 block content
   section.content.dashboard
     .page-heading
@@ -24,10 +25,30 @@ block content
               label.display-block #{__("Precio")}
               input.form-control.new-precio(type='text', placeholder='Precio')            
             .form-group.col-md-4
-              label.display-block #{__("File#")}
+              label.display-block #{__("Imagen")}
               input.form-control.new-file(type='file', accept=".jpg, .jpeg, .png", placeholder='Choose File', required='')
             .form-group.clearfix.col-md-12
               button.btn.btn-sm.btn-success.pull-right(type='submit') #{__("Add Image")}
+      .panel.panel-default.update-image(style='display: none;')
+        .panel-heading #{__("Update Image")}
+        .panel-body
+          form.update-image-form(action='/information/dato_update' method='post')
+            input(type="hidden").old-img
+            .form-group.col-md-4
+              label.display-block #{__("Nombre de menu")}
+              input.form-control.update-nombre(type='text', placeholder='nombre de menu')
+            .form-group.col-md-4
+              label.display-block #{__("Categoria comida")}
+              input.form-control.update-categoria(type='text', placeholder='Categoria comida')
+            .form-group.col-md-4
+              label.display-block #{__("Descripcion")}
+              input.form-control.update-descripcion(type='text', placeholder='Descripcion')
+            .form-group.col-md-4
+              label.display-block #{__("Precio")}
+              input.form-control.update-precio(type='text', placeholder='Precio')            
+            .form-group.clearfix.col-md-12
+              button.btn.btn-sm.btn-success.pull-right(type='submit') #{__("Update Image")}
+              a.btn.btn-sm.btn-success.pull-right.remove-img #{__("Remove Image")}
       .panel.panel-default
         .panel-heading #{__("Images")}
         .panel-body

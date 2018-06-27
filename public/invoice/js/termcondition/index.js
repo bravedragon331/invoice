@@ -81,6 +81,7 @@
     })
   }
   var refreshEvent = function() {
+    if(admin.type == 0) return;
     $('.term-table').off();
     $('.term-table tbody tr').on('dblclick', function() {      
       for(var i = 0; i < term_list.length; i++) {

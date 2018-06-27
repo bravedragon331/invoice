@@ -37,6 +37,7 @@
                     <img class="img-responsive" src="/uploads/dato/image/`+images[i].name+`" alt="Lightbox Gallery Image">
                 </a>
                 <p class="title" data-id="`+images[i].id+`">`+images[i].title+`</p>
+                <i class="edit material-icons" data-id="`+images[i].id+`">edit</i>
             </div>`;
           }
           $('.images').html(ht);
@@ -47,7 +48,8 @@
               <a target="_blank" href="/uploads/dato/pdf/`+pdfs[i].name+`">
                 <img class="img-responsive" src="/uploads/dato/pdf/pdf.png">
               </a>
-              <p>`+pdfs[i].title+`</p>
+              <p class="title">`+pdfs[i].title+`</p>
+              <i class="pdf-remove material-icons" data-id="`+pdfs[i].id+`">delete</i>
             </div>`;
           }          
           $('.pdfs').html(ht);
@@ -87,6 +89,50 @@
     request.send(formData);
   })
 
+  $('.update-image-form').submit(function(e) {
+    e.preventDefault();
+    $('.lds-spinner').fadeIn();
+    $.ajax({
+      url: '/information/dato_update',
+      type: 'POST',
+      data: {
+        nombre: $('.update-nombre').val(),
+        categoria: $('.update-categoria').val(),
+        descripcion: $('.update-descripcion').val(),
+        precio: $('.update-precio').val(),
+        id: $('.old-img').val()
+      },
+      success: function(res) {
+        $('.lds-spinner').fadeOut();
+        if(res.isSuccess){ 
+          $('.update-image').fadeOut();
+          loadDato();
+        } else {
+          alert('Failed to update.');
+        }
+      }
+    })    
+  })
+  $('.remove-img').on('click', function() {
+    $('.lds-spinner').fadeIn();
+    $.ajax({
+      url: '/information/dato_remove',
+      type: 'POST',
+      data: {        
+        id: $('.old-img').val()
+      },
+      success: function(res) {
+        $('.lds-spinner').fadeOut();
+        if(res.isSuccess){ 
+          $('.update-image').fadeOut();
+          loadDato();
+        } else {
+          alert('Failed to update.');
+        }
+      }
+    })
+  })
+
   var refreshEvent = function() {
     $('.title').on('click', function() {
       var id = $(this).data('id');
@@ -101,5 +147,41 @@
         }
       }
     })
+    $('.edit').on('click', function() {
+      $('.update-image').fadeIn();
+      var id = $(this).data('id');
+      for(var i = 0; i < images.length; i++) {
+        if(images[i].id == id) {
+          $('.update-nombre').val(images[i].nombre);          
+          $('.update-categoria').val(images[i].categoria);
+          $('.update-descripcion').val(images[i].descripcion);
+          $('.update-precio').val(images[i].precio);
+          $('.old-img').val(images[i].id);
+        }
+      }
+    })
+    $('.pdf-remove').on('click', function() {
+      var result = confirm("Are you sure to delete?");
+      if(result) {
+        $('.lds-spinner').fadeIn();
+        $.ajax({
+          url: '/information/dato_remove',
+          type: 'POST',
+          data: {        
+            id: $(this).data('id')
+          },
+          success: function(res) {
+            $('.lds-spinner').fadeOut();
+            if(res.isSuccess){ 
+              loadDato();
+            } else {
+              alert('Failed to update.');
+            }
+          }
+        })
+      }
+    })
   }
+
+    
 }(jQuery));

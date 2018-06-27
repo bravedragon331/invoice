@@ -4,7 +4,7 @@ html(lang='en')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title Notice from Invoice
+    title #{__("Contrato y Invoice")}
     // Favicon
     link(rel='icon', href='favicon.ico', type='image/x-icon')
     // Google Fonts
@@ -57,7 +57,7 @@ html(lang='en')
               // Logo
               a.navbar-brand(href='/')
                 span.logo-minimized AS
-                span.logo INVOICE
+                span.logo #{__("Contrato y Invoice")}
               // #END# Logo
             #navbar-collapse.collapse.navbar-collapse
               ul.nav.navbar-nav
@@ -80,11 +80,11 @@ html(lang='en')
                       img(src='/assets/images/avatars/face2.jpg', alt='User Avatar')
                       .user
                         | #{user.email}
-                        .title Invoice Management                    
+                        .title #{__("Invoice Management")}                    
                     li.footer
                       .row.clearfix
                         .col-xs-5
-                          a.btn.btn-default.btn-sm.btn-block Log Off
+                          a.btn.btn-default.btn-sm.btn-block #{__("Log Off")}
                         .col-xs-2
                         .col-xs-5
                           a.btn.btn-default.btn-sm.btn-block(href='/logout') #{__('Log Out')}
@@ -94,7 +94,7 @@ html(lang='en')
         nav.sidebar-nav
           ul.metismenu
             li.title
-              | INVOICE MANAGEMENT
+              | #{__("Invoice Management")}
             li.m-dashboard1
               a(href='/information')
                 i.material-icons business_center
@@ -104,7 +104,7 @@ html(lang='en')
                 i.material-icons announcement
                 span.nav-label #{__("Terminos y condiciones")}
             li.title
-              | ADMINISTRATION
+              | #{__("ADMINISTRATION")}
             li.m-dashboard1
               a(href='/users')
                 i.material-icons people
@@ -116,8 +116,8 @@ html(lang='en')
           .row.clearfix
             .col-sm-6
               p
-                b #{__("© 2018-2019 Invoice")}
-                | #{__(". All rights reserved.")}
+                b #{__("Contrato y Invoice.")}
+                | #{__("Todos los derechos reservados.")}
             .col-sm-6.align-right
       // #END# Footer
 

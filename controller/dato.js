@@ -79,3 +79,21 @@ exports.load = function(req, res) {
     }
   })
 }
+exports.update = function(req, res) {
+  Dato.updateDato(req.body, function(err, result) {
+    if(err) {
+      res.json({isSuccess: false});
+    } else {
+      res.json({isSuccess: true});
+    }
+  })
+}
+exports.remove = function(req, res) {
+  Dato.removeDato(req.body, function(err) {
+    if(err) {
+      res.json({isSuccess: false});
+    } else {
+      res.json({isSuccess: true});
+    }
+  })
+}

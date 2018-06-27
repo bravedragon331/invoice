@@ -35,5 +35,7 @@ router.get('/invoice/download/detail', function(req, res) {
 router.get('/datos', dato.index);
 router.post('/dato_upload', dato.upload);
 router.post('/dato_load', dato.load);
+router.post('/dato_update', dato.update);
+router.post('/dato_remove', dato.remove);
 
 module.exports = router;
