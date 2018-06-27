@@ -92,5 +92,19 @@
 	"Create Invoice": "Create Invoice",
 	"Datos of Customer": "Datos of Customer",
 	"File UPLOAD": "File UPLOAD",
-	"Drop files here or click to upload.": "Drop files here or click to upload."
+	"Drop files here or click to upload.": "Drop files here or click to upload.",
+	"solicitud de uso del servicio sistema miugodo": "solicitud de uso del servicio sistema miugodo",
+	"Fecha Nacimiento": "Fecha Nacimiento",
+	"Minimo Pedido (Q)": "Minimo Pedido (Q)",
+	"Paid Amount(Q)": "Paid Amount(Q)",
+	"Acuerdo de Solicitud": "Acuerdo de Solicitud",
+	"Confirm": "Confirm",
+	"Add Image": "Add Image",
+	"Nombre de menu": "Nombre de menu",
+	"Categoria comida": "Categoria comida",
+	"Descripcion": "Descripcion",
+	"Precio": "Precio",
+	"Document UPLOAD": "Document UPLOAD",
+	"Documents": "Documents",
+	"Images": "Images"
 }

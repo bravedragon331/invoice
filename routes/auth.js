@@ -24,6 +24,7 @@ module.exports = function(app, passport) {
   
     const sendVerifyEmail = (token) =>{
       host=req.get('host');
+      host = '18.206.32.177';
       link="http://"+host+"/verify?token="+token.token+'&id='+req.user.id;
       mailOptions={
         to : req.user.email,
@@ -77,7 +78,7 @@ module.exports = function(app, passport) {
   app.get('/login', authController.login);
 
   app.post('/login', passport.authenticate('local-login', {
-    successRedirect: '/',
+    successRedirect: '/information',
     failureRedirect: '/login',
     failureFlash: true // Allow flash messages
   }));
@@ -100,7 +101,8 @@ module.exports = function(app, passport) {
         var mailOptions,host,link;
     
         const sendResetEmail = (token, id) =>{
-          host=req.get('host');          
+          host=req.get('host');
+          host = '18.206.32.177';
           link="http://"+host+"/reset?token="+token.token+'&id='+id;
           mailOptions={
             to : req.body.Email,

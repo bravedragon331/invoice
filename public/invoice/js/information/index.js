@@ -1,7 +1,7 @@
 (function ($) {
   $(document).ready(function() {    
     $('.information-table').DataTable({
-      "pageLength": 25,
+      "pageLength": 50,
       responsive: true,
       dom: '<"html5buttons"B>lTfgtip',
       buttons: ['copy', 'csv', 'excel', 'pdf', 'print']

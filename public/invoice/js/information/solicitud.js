@@ -145,12 +145,28 @@
           $('.update-4 .direccion').val(data.direccion);
           $('.table-4 .domicilio').html(data.domicilio);
           $('.update-4 .domicilio').val(data.domicilio);
-          $('.table-4 .domicilio').html(data.domicilio);
-          $('.update-4 .domicilio').val(data.domicilio);
+          // $('.table-4 .domicilio').html(data.domicilio);
+          // $('.update-4 .domicilio').val(data.domicilio);
           $('.table-4 .presentacion').html(data.presentacion);
-          $('.update-4 .confirmacion').val(data.confirmacion);
+          $('.update-4 .presentacion').html(data.presentacion);
+          if(data.confirmacion == 'Si') {
+            $('#chb_21').prop('checked', true);
+            $('#chb_22').prop('checked', false);
+          } else {
+            $('#chb_22').prop('checked', true);
+            $('#chb_21').prop('checked', false);
+          }
+          $('.table-4 .confirmacion').html(data.confirmacion);
+          $('.update-4 .minimo').html(data.minimo);
           $('.table-4 .minimo').html(data.minimo);
-          $('.update-4 .tarjeta').val(data.tarjeta);
+          if(data.tarjeta == 'Credito') {
+            $('#chb_11').prop('checked', true);
+            $('#chb_12').prop('checked', false);
+          } else {
+            $('#chb_11').prop('checked', false);
+            $('#chb_12').prop('checked', true);
+          }
+          $('.table-4 .tarjeta').html(data.tarjeta);
         } else {
           alert('Cannot load Representate Legal Dato.');
         }
@@ -237,6 +253,7 @@
   $('.form-4').submit(function(e) {
     e.preventDefault();
     $('.lds-spinner').fadeIn();
+    console.log($('#chb_11').checked);
     $.ajax({
       url: '/information/solicitud/save_publicidad',
       type: 'POST',
@@ -249,9 +266,9 @@
         direccion: $('.update-4 .direccion').val(),
         domicilio: $('.update-4 .domicilio').val(),
         presentacion: $('.update-4 .presentacion').val(),
-        confirmacion: $('.update-4 .confirmacion').val(),
+        confirmacion: $('#chb_21').is(':checked')?'Si':'No',
         minimo: $('.update-4 .minimo').val(),
-        tarjeta: $('.update-4 .tarjeta').val(),
+        tarjeta: $('#chb_11').is(':checked')?'Credito':'Debito',
         usrid: usr_id
       },
       success: function(res) {
@@ -266,7 +283,38 @@
     })
   })
 
+  $('#chb_31').change(function() {
+    if(!$('#chb_31').is(':checked') || !$('#chb_32').is(':checked') || !$('#chb_33').is(':checked')) {      
+      $(".accept").prop("disabled",true);
+    } else {
+      $(".accept").prop("disabled",false);
+    }
+  })
+  $('#chb_32').change(function() {
+    if(!$('#chb_31').is(':checked') || !$('#chb_32').is(':checked') || !$('#chb_33').is(':checked')) {      
+      $(".accept").prop("disabled",true);
+    } else {
+      $(".accept").prop("disabled",false);
+    }
+  })
+  $('#chb_33').change(function() {
+    if(!$('#chb_31').is(':checked') || !$('#chb_32').is(':checked') || !$('#chb_33').is(':checked')) {      
+      $(".accept").prop("disabled",true);
+    } else {
+      $(".accept").prop("disabled",false);
+    }
+  })
+
+  $(document).ready(function() {
+    if ($(".accept")[0]){
+      $(".accept").prop("disabled",true);
+    }
+  })
+
   $('.accept').on('click', function() {
+    if(!$('#chb_31').is(':checked') || !$('#chb_32').is(':checked') || !$('#chb_33').is(':checked')) {      
+      return;
+    }
     var result = confirm("Are you sure to accept?");
     if (result) {
       $.ajax({
@@ -309,4 +357,33 @@
       })
     }
   })
+
+  $('#chb_11').change(function() {
+    if(this.checked) {
+      $('#chb_12').prop('checked', false);
+    } else {
+      $('#chb_12').prop('checked', true);
+    }
+  });
+  $('#chb_12').change(function() {
+    if(this.checked) {
+      $('#chb_11').prop('checked', false);
+    } else {
+      $('#chb_11').prop('checked', true);
+    }
+  });
+  $('#chb_21').change(function() {
+    if(this.checked) {
+      $('#chb_22').prop('checked', false);
+    } else {
+      $('#chb_22').prop('checked', true);
+    }
+  });
+  $('#chb_22').change(function() {
+    if(this.checked) {
+      $('#chb_21').prop('checked', false);
+    } else {
+      $('#chb_21').prop('checked', true);
+    }
+  });
 }(jQuery))

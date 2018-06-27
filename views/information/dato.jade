@@ -6,31 +6,67 @@ block content
   section.content.dashboard
     .page-heading
       h1 #{__("Datos of Customer")}
-    .page-body
+    .page-body      
+      .panel.panel-default.add-image
+        .panel-heading #{__("Add Image")}
+        .panel-body
+          form.add-image-form(action='/information/dato_upload' method='post')
+            .form-group.col-md-4
+              label.display-block #{__("Nombre de menu")}
+              input.form-control.new-nombre(type='text', placeholder='nombre de menu')
+            .form-group.col-md-4
+              label.display-block #{__("Categoria comida")}
+              input.form-control.new-categoria(type='text', placeholder='Categoria comida')
+            .form-group.col-md-4
+              label.display-block #{__("Descripcion")}
+              input.form-control.new-descripcion(type='text', placeholder='Descripcion')
+            .form-group.col-md-4
+              label.display-block #{__("Precio")}
+              input.form-control.new-precio(type='text', placeholder='Precio')            
+            .form-group.col-md-4
+              label.display-block #{__("File#")}
+              input.form-control.new-file(type='file', accept=".jpg, .jpeg, .png", placeholder='Choose File', required='')
+            .form-group.clearfix.col-md-12
+              button.btn.btn-sm.btn-success.pull-right(type='submit') #{__("Add Image")}
+      .panel.panel-default
+        .panel-heading #{__("Images")}
+        .panel-body
+          .list-unstyled.row.clearfix.images
       .panel.panel-default
         .panel-heading
-          | #{__("File UPLOAD")}
+          | #{__("Document UPLOAD")}
         .panel-body(style='display: none;')
           form#frmFileUpload.dropzone(action='/information/dato_upload', method='post', enctype='multipart/form-data')
-            input(type="hidden", value='#{usr.id}', name='id')
+            input.usrid(type="hidden", value='#{usr.id}', name='id')
             .dz-message
               .drag-icon-cph
                 i.fa.fa-hand-pointer-o
               h3 #{__("Drop files here or click to upload.")}
             .fallback
               input(name='file', type='file', multiple='')
+      .panel.panel-default
+        .panel-heading #{__("Documents")}
+        .panel-body.pdfs
 
-      .panel.panel-default
-        .panel-heading Images
-        .panel-body
-          .list-unstyled.row.clearfix.images            
-      .panel.panel-default
-        .panel-heading Documents
-        .panel-body.pdfs          
+      button.modal-trigger(type="hiddn" class="btn btn-sm btn-default" data-toggle="modal" data-target="#defaultModal")
+      #defaultModal.modal.fade(tabindex='-1', role='dialog')
+        .modal-dialog(role='document')
+          .modal-content
+            .modal-header
+              h4#defaultModalLabel.modal-title
+            .modal-body
+              p.nombre
+              p.categoria
+              p.descripcion
+              p.precio
+            .modal-footer
+              button.btn.btn-link(type='button', data-dismiss='modal') CLOSE
+
 block script
   script.
     var usr = (!{JSON.stringify(usr)});
   script(src="/assets/plugins/lightbox2/dist/js/lightbox.js")
   script(src="/assets/js/pages/medias/carousel.js")
+  script(src="/assets/js/pages/ui/modals.js")
   script(src='/assets/plugins/dropzone/dist/dropzone.js')
   script(src='/invoice/js/information/dato.js')

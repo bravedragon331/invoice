@@ -73,6 +73,11 @@
         console.log(res);
         $('.lds-spinner').fadeOut();
         if(res.status) {
+          res.list.sort((a, b) => {
+            if(a.invoicedate > b.invoicedate) return 1;
+            else if(a.invoicedate == b.invoicedate) return 0;
+            else return -1;
+          })
           invoice_list = res.list;
           var tableData = [];
           if(invoice_list.length == 0) return;

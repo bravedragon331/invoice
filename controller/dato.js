@@ -20,7 +20,6 @@ exports.upload = function(req, res) {
   form.parse(req, function(err, fields, files) {
     var filename;
     if(files.file != undefined){
-      console.log(files.file);
       filename = uniqid();
       var old_path = files.file.path;
       var file_size = files.file.size;
@@ -38,6 +37,14 @@ exports.upload = function(req, res) {
             });
           });
         });
+        Dato.addImage(fields, filename + '.' + file_ext, files.file.name, function(err, result) {
+          console.log(err);
+          if(err){
+            res.json({isSuccess:false});
+          }else{
+            res.json({isSuccess:true});
+          }
+        })
       } else if(file_ext == 'pdf') {
         var new_path = path.join(appRoot, '/public/uploads/dato/pdf/', filename + '.' + file_ext);
         fs.readFile(old_path, function(err, data) {
@@ -51,14 +58,15 @@ exports.upload = function(req, res) {
             });
           });
         });
+        Dato.addDocument(fields.id, filename + '.' + file_ext, files.file.name, function(err, result) {
+          if(err){
+            res.json({isSuccess:false});
+          }else{
+            res.json({isSuccess:true});
+          }
+        })
       }      
-      Dato.addDato(fields.id, filename + '.' + file_ext, files.file.name, function(err, result) {
-        if(err){
-          res.json({isSuccess:false});
-        }else{
-          res.json({isSuccess:true});
-        }
-      })
+      
     }    
   });
 }

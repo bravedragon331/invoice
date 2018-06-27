@@ -102,6 +102,7 @@ exports.load_publicidad = function(req, res) {
   })
 }
 exports.save_publicidad = function(req, res) {
+  console.log(req.body);
   Publicidad.savePublicidad(req.body, function(err, result) {
     console.log(err);
     if(err) {
