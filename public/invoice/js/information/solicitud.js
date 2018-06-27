@@ -64,7 +64,7 @@
           $('.table-1 .documento').html(data.documento);
           $('.update-1 .documento').val(data.documento);
         } else {
-          alert('Cannot load Empresa Dato.');
+          alert('No se pueden cargar los datos de la empresa');
         }
       }
     })
@@ -88,7 +88,7 @@
           $('.table-2 .tel').html(data.tel);
           $('.update-2 .tel').val(data.tel);          
         } else {
-          alert('Cannot load Representate Legal Dato.');
+          alert('No se pueden cargar los datos de Representante Legal');
         }
       }
     })
@@ -114,7 +114,7 @@
           $('.table-3 .pago').html(data.pago);
           $('.update-3 .pago').val(data.pago);
         } else {
-          alert('Cannot load Representate Legal Dato.');
+          alert('No se pueden cargar los datos de Representante Legal');
         }
       }
     })
@@ -171,7 +171,7 @@
           }
           $('.table-4 .tarjeta').html(data.tarjeta);
         } else {
-          alert('Cannot load Representate Legal Dato.');
+          alert('No se pueden cargar los datos de Representante Legal');
         }
       }
     })
@@ -201,7 +201,7 @@
         if(res.isSuccess) {
           loadTab1();
         } else {
-          alert('Cannot save data. Please contact support team.');
+          alert('No se puede gardar la información. Por favor contacte al soporte técnico');
         }
       }
     })
@@ -224,7 +224,7 @@
         if(res.isSuccess) {
           loadTab2();
         } else {
-          alert('Cannot save data. Please contact support team.');
+          alert('No se puede gardar la información. Por favor contacte al soporte técnico');
         }
       }
     })
@@ -248,7 +248,7 @@
         if(res.isSuccess) {
           loadTab3();
         } else {
-          alert('Cannot save data. Please contact support team.');
+          alert('No se puede gardar la información. Por favor contacte al soporte técnico');
         }
       }
     })
@@ -282,7 +282,7 @@
         if(res.isSuccess) {
           loadTab4();
         } else {
-          alert('Cannot save data. Please contact support team.');
+          alert('No se puede gardar la información. Por favor contacte al soporte técnico');
         }
       }
     })
@@ -320,7 +320,7 @@
     if(!$('#chb_31').is(':checked') || !$('#chb_32').is(':checked') || !$('#chb_33').is(':checked')) {      
       return;
     }
-    var result = confirm("Are you sure to accept?");
+    var result = confirm("¿Estás seguro?");
     if (result) {
       $.ajax({
         url: '/information/accept',
@@ -336,7 +336,7 @@
             $('.update-tab-3').hide();
             $('.update-tab-4').hide();
           } else {
-            alert('Cannot process request. Please contact support team.');
+            alert('No se puede procesar la solicitud. Por favor contacte al soporte técnico.');
           }
         }
       })
@@ -344,7 +344,7 @@
   })
 
   $('.publish').on('click', function() {
-    var result = confirm("Are you sure to publish?");
+    var result = confirm("¿Estás seguro?");
     if(result) {
       $.ajax({
         url: '/information/publish',
@@ -356,7 +356,7 @@
           if(res.isSuccess) {
             $('.publish').hide();
           } else {
-            alert('Cannot process request. Please contact support team.');
+            alert('No se puede procesar la solicitud. Por favor contacte al soporte técnico.');
           }
         }
       })

@@ -10,6 +10,9 @@
   $(document).ready(function(){
     $('.user-table').DataTable({
       "pageLength": 25,
+      "language": {
+        "search": "Buscar"
+      },
       responsive: true,
       dom: '<"html5buttons"B>lTfgtip',
       buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
@@ -72,7 +75,7 @@
           $('.email').val('');          
           refreshEvent();
         }else {
-          alert('User email is already used. Try other information.')
+          alert('El correo esta actualmente en uso. Intente otra información.')
         }
         refreshEvent();
       }

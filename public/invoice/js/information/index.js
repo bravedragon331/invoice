@@ -2,6 +2,9 @@
   $(document).ready(function() {    
     $('.information-table').DataTable({
       "pageLength": 50,
+      "language": {
+        "search": "Buscar"
+      },
       responsive: true,
       dom: '<"html5buttons"B>lTfgtip',
       buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
@@ -22,7 +25,7 @@
             tabledata.push([
               i+1, res.list[i].empresa, res.list[i].nit, res.list[i].nombre, res.list[i].email,
               res.list[i].contractdate, res.list[i].acceptdate,
-              res.list[i].status?'<span style="color:blue">Activated</span>':'<span style="color:red">Deactivated</span>',
+              res.list[i].status?'<span style="color:blue">Activado</span>':'<span style="color:red">Desactivado</span>',
               ((usr.type == 1) || (res.list[i].p_id != null))?
               `<p style="margin-bottom: 0px;">
                 <a target="_blank" class="btn btn-success btn-sm mt-5" href="/information/solicitud?id=`+res.list[i].id+`">SOLICITUD</a>
@@ -39,7 +42,7 @@
           $('.information-table').dataTable().fnAddData(tabledata);
           $('.information-table').dataTable().fnDraw();
         } else {
-          alert('Cannot load client information');
+          alert('No se puede cargar la información del cliente');
         }
       }
     })

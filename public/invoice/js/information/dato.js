@@ -82,7 +82,7 @@
         if(response.isSuccess == true){
           loadDato();
         }else{
-          alert('Failed.');
+          alert('Ha fallado.');
         }
       }
     }
@@ -108,7 +108,7 @@
           $('.update-image').fadeOut();
           loadDato();
         } else {
-          alert('Failed to update.');
+          alert('Failed to updateFallo al actualizar.');
         }
       }
     })    
@@ -127,7 +127,7 @@
           $('.update-image').fadeOut();
           loadDato();
         } else {
-          alert('Failed to update.');
+          alert('Failed to updateFallo al actualizar.');
         }
       }
     })
@@ -161,7 +161,7 @@
       }
     })
     $('.pdf-remove').on('click', function() {
-      var result = confirm("Are you sure to delete?");
+      var result = confirm("¿Estás seguro?");
       if(result) {
         $('.lds-spinner').fadeIn();
         $.ajax({
@@ -175,7 +175,7 @@
             if(res.isSuccess){ 
               loadDato();
             } else {
-              alert('Failed to update.');
+              alert('Failed to updateFallo al actualizar.');
             }
           }
         })

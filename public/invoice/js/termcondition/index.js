@@ -20,6 +20,9 @@
   $(document).ready(function() {    
     $('.term-table').DataTable({
       "pageLength": 25,
+      "language": {
+        "search": "Buscar"
+      },
       responsive: true,
       dom: '<"html5buttons"B>lTfgtip',
       buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
@@ -42,7 +45,7 @@
         if(response.isSuccess == true){
           loadAllTerms();
         }else{
-          alert('Failed.');              
+          alert('Ha fallado.');
         }
       }
     }
@@ -78,7 +81,7 @@
           .draw();
           refreshEvent();
         } else {
-          alert('Cannot load list. Please contact support team.')
+          alert('No se puede cargar el listado. Por favor contacte al soporte técnico.')
         }        
       }
     })
@@ -117,7 +120,7 @@
         if(response.isSuccess == true){
           loadAllTerms();
         }else{
-          alert('Failed.');              
+          alert('Ha fallado.');
         }
       }
     }
@@ -134,7 +137,7 @@
         if(res.isSuccess) {
           loadAllTerms();
         } else {
-          alert('Cannot remove term. Please contact support team.');
+          alert('No se puede eliminar la información')
         }
       }
     })    

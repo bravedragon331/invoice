@@ -3,6 +3,9 @@
     $('.js-example-basic-multiple').select2();
     $('.auth-table').DataTable({
       "pageLength": 25,
+      "language": {
+        "search": "Buscar"
+      },
       responsive: true,
       dom: '<"html5buttons"B>lTfgtip',
       buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
@@ -150,7 +153,7 @@
           row.remove();
           $('.auth-table').dataTable().fnDraw();
         }else{
-          alert('Cannot remove Factory.')
+          alert('No se puede eliminar la información')
         }
       }
     })
@@ -181,7 +184,7 @@
           $('.oldemail').val($('.email').val());
           $('.update-user .panel-collapsable').click();
         } else {
-          alert('Cannot update user information. Please contact support team.')
+          alert('No se puede actualizar la información del usuario. Por favor contacte al soporte técnico');
         }
       }
     })
