@@ -10,23 +10,23 @@ block content
               .panel-heading #{__("Update User")}
               .panel-body
                 form.update-user-form(action='/users/user_update' method='post')
-                  input.oldemail(type='hidden', placeholder='Email', required='', value='#{user.email}' name='oldemail')                  
+                  input.oldemail(type='hidden', placeholder='Email', required='', value='#{usr.email}' name='oldemail')                  
                   .form-group.clearfix.col-md-4
                     label.display-block #{__("First Name")}
-                    input.form-control.firstname(type='text', placeholder='Name', required='', value='#{user.firstname}', name='firstname')
+                    input.form-control.firstname(type='text', placeholder='Name', required='', value='#{usr.firstname}', name='firstname')
                   .form-group.clearfix.col-md-4
                     label.display-block #{__("Last Name")}
-                    input.form-control.lastname(type='text', placeholder='Name', required='', value='#{user.lastname}', name='lastname')
+                    input.form-control.lastname(type='text', placeholder='Name', required='', value='#{usr.lastname}', name='lastname')
                   .form-group.clearfix.col-md-4
                     label.display-block #{__("Email")}
-                    input.form-control.email(type='email', placeholder='Email', required='', value='#{user.email}', name='email')
+                    input.form-control.email(type='email', placeholder='Email', required='', value='#{usr.email}', name='email')
                   .form-group.clearfix.col-md-4
                     label.display-block #{__("Contact Date")}
-                    input.form-control.contractdate(type='text', placeholder='Contact Date', value='#{user.contractdate}')
+                    input.form-control.contractdate(type='text', placeholder='Contact Date', value='#{usr.contractdate}')
                   .form-group.clearfix.col-md-4
                     label.display-block #{__("User Type")}
                     select.type-bar(style='width: 100%;', name='type')
-                      - if(user.type == 1){
+                      - if(usr.type == 1){
                         option(value='0') Normal
                         option(value='1' selected) Admin
                       - }else{
@@ -36,7 +36,7 @@ block content
                   .form-group.clearfix.col-md-4
                     label.display-block #{__("Status")}
                     select.status-bar(style='width: 100%;', name='status')
-                      - if(user.status == 1){
+                      - if(usr.status == 1){
                           option(value='1' selected) Active
                           option(value='0') Inactive
                       - }
@@ -152,7 +152,7 @@ block content
 block script
   script.
     var pages = (!{JSON.stringify(pages)});
-    var user = (!{JSON.stringify(user)});
+    var usr = (!{JSON.stringify(usr)});
   script(src='/assets/plugins/moment/moment.js')
   script(src='/assets/plugins/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js')
   script(src='/invoice/js/organization/user_auth.js')

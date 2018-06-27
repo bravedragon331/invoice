@@ -51,7 +51,7 @@ exports.user_auth = function(req, res){
           res.redirect('/');
         }else{
           console.log(result);
-          res.render('organization/user_auth', {id: id, pages: Const.pages, auths: result, user: user, role: res.role});
+          res.render('organization/user_auth', {id: id, pages: Const.pages, auths: result, usr: user, role: res.role});
         }
       })
     }    
