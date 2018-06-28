@@ -32,6 +32,7 @@
 
   $('.add-form').submit(function(e) {
     e.preventDefault();
+    $('.lds-spinner').fadeIn();
     var formData = new FormData();
     formData.append('file', document.getElementsByClassName('new-pdf')[0].files[0]);
     formData.append('version', $('.new-version').val());
@@ -42,6 +43,7 @@
     request.onreadystatechange = function() {
       if (request.readyState === 4) {
         var response = JSON.parse(request.responseText);
+        $('.lds-spinner').fadeOut();
         if(response.isSuccess == true){
           loadAllTerms();
         }else{
