@@ -86,9 +86,9 @@
               invoice_list[i].payment, invoice_list[i].amount, invoice_list[i].transfer, invoice_list[i].receipt, invoice_list[i].invoice, invoice_list[i].invoicedate, invoice_list[i].total,
               `<a target="_blank" class="btn btn-success btn-sm" href="/information/invoice/download/detail?name=`+invoice_list[i].filename+`">Download</a>`,
             ]);
-          }
-          if(tableData.length == 0) return;
+          }          
           $('.invoice-table').dataTable().fnClearTable();
+          if(tableData.length == 0) return;
           $('.invoice-table').dataTable().fnAddData(tableData);
           $('.invoice-table').dataTable().fnDraw();
           $('.invoice-table').DataTable()

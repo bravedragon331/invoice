@@ -37,9 +37,9 @@
                 <a target="_blank" class="btn btn-success btn-sm mt-5" href="/information/datos?id=`+res.list[i].id+`">DATOS</a>
               </p>`
             ])
-          }
-          if(tabledata.length == 0) return;
+          }          
           $('.information-table').dataTable().fnClearTable();
+          if(tabledata.length == 0) return;
           $('.information-table').dataTable().fnAddData(tabledata);
           $('.information-table').dataTable().fnDraw();
         } else {

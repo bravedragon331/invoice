@@ -63,7 +63,6 @@
         $('.lds-spinner').fadeOut();
         if(res.status) {
           term_list = res.list;
-          console.log(term_list);
           var tableData = [];
           for(var i = 0; i < res.list.length; i++) {
             tableData.push([
@@ -72,9 +71,9 @@
               res.list[i].revisedate,
               `<a target="_blank" class="btn btn-success btn-sm" href="/termcondition/download/detail?name=`+res.list[i].filename+`">Download</a>`,
             ]);
-          }
-          if(tableData.length == 0) return;
+          }          
           $('.term-table').dataTable().fnClearTable();
+          if(tableData.length == 0) return;
           $('.term-table').dataTable().fnAddData(tableData);
           $('.term-table').dataTable().fnDraw();
           $('.term-table').DataTable()
@@ -133,10 +132,11 @@
       url: '/termcondition/term_remove',
       type: 'POST',
       data: {
-        oldid: $('.oldid').val()
+        oldid: $('.old-id').val()
       },
       success: function(res) {
         $('.lds-spinner').fadeOut();
+        $('.update-term').fadeOut();
         if(res.isSuccess) {
           loadAllTerms();
         } else {
