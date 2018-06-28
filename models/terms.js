@@ -42,7 +42,7 @@ var updateTerm = function(body, filename, callback) {
 }
 
 var removeTerm = function(body, callback) {
-  db.query(` DELETE FROM terms WHERE id = ?`, [body.id], function(err) {
+  db.query(` DELETE FROM terms WHERE id = ?`, [body.oldid], function(err) {
     if(err) {
       callback(err);
     } else {
