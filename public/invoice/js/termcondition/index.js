@@ -128,13 +128,15 @@
     request.send(formData);
   })
   $('.remove-term').on('click',function() {
+    $('.lds-spinner').fadeIn();
     $.ajax({
-      url: '/termconditon/term_remove',
+      url: '/termcondition/term_remove',
       type: 'POST',
       data: {
         oldid: $('.oldid').val()
       },
       success: function(res) {
+        $('.lds-spinner').fadeOut();
         if(res.isSuccess) {
           loadAllTerms();
         } else {
