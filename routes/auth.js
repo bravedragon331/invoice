@@ -106,8 +106,8 @@ module.exports = function(app, passport) {
           link="https://cliente.com.gt"+"/reset?token="+token.token+'&id='+id;
           mailOptions={
             to : req.body.Email,
-            subject : "Reset your password",
-            html : "Hola,<br> Usted está recibiendo este correo electrónico porque usted (u otra persona) ha solicitado el restablecimiento de la contraseña de su cuenta. Haga clic en el siguiente enlace o pegue esto en su navegador para completar el proceso:<br>"
+            subject : "Restablecer su contraseña",
+            html : "Hola,<br> Usted está recibiendo este correo electrónico por que usted (u otra persona) ha solicitado el restablecimiento de la contraseña de su cuenta. Haga clic en el siguiente enlace o pegue esto en su navegador para completar el proceso:<br>"
               + "<a href=" +link+">Haga clic aquí para verificar</a>"
           };
           smtpTransport.sendMail(mailOptions, function(error, response){
