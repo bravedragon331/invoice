@@ -73,6 +73,7 @@
               `<a target="_blank" class="btn btn-success btn-sm" href="/termcondition/download/detail?name=`+res.list[i].filename+`">Download</a>`,
             ]);
           }
+          if(tableData.length == 0) return;
           $('.term-table').dataTable().fnClearTable();
           $('.term-table').dataTable().fnAddData(tableData);
           $('.term-table').dataTable().fnDraw();

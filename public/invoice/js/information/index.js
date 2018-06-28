@@ -20,7 +20,7 @@
       success: function(res) {
         console.log(res);
         if(res.isSuccess) {
-          var tabledata = [];
+          var tabledata = [];          
           for(var i = 0; i < res.list.length; i++) {
             tabledata.push([
               i+1, res.list[i].empresa, res.list[i].nit, res.list[i].nombre, res.list[i].email,
@@ -38,6 +38,7 @@
               </p>`
             ])
           }
+          if(tabledata.length == 0) return;
           $('.information-table').dataTable().fnClearTable();
           $('.information-table').dataTable().fnAddData(tabledata);
           $('.information-table').dataTable().fnDraw();

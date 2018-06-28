@@ -87,6 +87,7 @@
               `<a target="_blank" class="btn btn-success btn-sm" href="/information/invoice/download/detail?name=`+invoice_list[i].filename+`">Download</a>`,
             ]);
           }
+          if(tableData.length == 0) return;
           $('.invoice-table').dataTable().fnClearTable();
           $('.invoice-table').dataTable().fnAddData(tableData);
           $('.invoice-table').dataTable().fnDraw();

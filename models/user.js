@@ -69,7 +69,7 @@ var signup = function(req, email, password, callback) {
       // No user exists, create the user
       //[newUser.id, newUser.email, newUser.password, req.body.FirstName, req.body.LastName, req.body.Department, req.body.PhoneNumber, false],
       //factory, department, line, name, position, email, password, phone, type, status
-      return createUser(req.body.FirstName, req.body.LastName, email, password, 0, 1, body.contractdate, callback);
+      return createUser(req.body.FirstName, req.body.LastName, email, password, 0, 1, req.body.contractdate, callback);
     }
   });
 };
