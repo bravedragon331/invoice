@@ -112,7 +112,7 @@ module.exports = function(app, passport) {
           };
           smtpTransport.sendMail(mailOptions, function(error, response){
             if(error){
-              res.render('auth/exception', {text: 'Error while sending message. Please contact support team.'});
+              res.render('auth/exception', {text: 'Hay un error al enviar un mensaje. Por favor contacta al equipo de soporte.'});
             }else{
               //res.render('exception', {text: 'Message is sent successfully.'});
               res.redirect('/login');

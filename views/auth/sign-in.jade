@@ -34,7 +34,7 @@ html(lang='en')
           - }
           form#frmSignin(action='/login' method='post' onsubmit='return validateForm()')
             .form-group.has-feedback
-              span.alert-email.alert(style='color: red;') #{__("Please input correct email.")}
+              span.alert-email.alert(style='color: red;') Por favor ingrese el correo correcto.
             .form-group.has-feedback
               input#Email.form-control(type='email', placeholder='#{__("Correo electrónico")}', name='Email', required='')
               span.glyphicon.glyphicon-envelope.form-control-feedback

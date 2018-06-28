@@ -83,13 +83,13 @@ var login = function(req, email, password, callback) {
       return callback(err);
 
     if (!rows.length)
-      return callback(null, false, req.flash('loginMessage', 'No user found.'));
+      return callback(null, false, req.flash('loginMessage', 'Usuario no encontrado.'));
 
     if (!validPassword(password, rows[0].password))
-      return callback(null, false, req.flash('loginMessage', 'Wrong password.'));
+      return callback(null, false, req.flash('loginMessage', 'Contraseña Incorrecta.'));
 
     if (rows[0].status == 0){
-      return callback(null, false, req.flash('loginMessage', 'Waiting permission allow.'));
+      return callback(null, false, req.flash('loginMessage', 'Esperando permitir permiso.'));
     }
     // User successfully logged in, return user
     return callback(null, new User(rows[0]));
