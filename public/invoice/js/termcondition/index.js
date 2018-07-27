@@ -1,4 +1,6 @@
 (function ($) {
+  $('.new-site').select2();
+  $('.update-site').select2();
   $('.add-term').on('click', 'a.panel-close', function () {
     $(this).parents('.add-term').fadeOut();
   });
@@ -16,7 +18,34 @@
   $('.update-revisedate').datetimepicker({
     format: 'YYYY-MM-DD',
     showClear: true
-  });  
+  });
+  getSiteName = function(id) {
+    if(id == 0) {
+      return 'Miugodo';
+    } else if(id == 1) {
+      return 'Envio';
+    } else if(id == 2) {
+      return 'Magicespejo';
+    } else if(id == 3) {
+      return 'Otratierra';
+    } else {
+      return '';
+    }
+  }
+  getSite = function(name) {
+    console.log(name);
+    if(name == 'Miugodo') {
+      return 0;
+    } else if(name == 'Envio') {
+      return 1;
+    } else if(name == 'Magicespejo') {
+      return 2;
+    } else if(name == 'Otratierra') {
+      return 3;
+    } else {
+      return -1;
+    }
+  }
   $(document).ready(function() {    
     $('.term-table').DataTable({
       "pageLength": 25,
@@ -37,6 +66,7 @@
     formData.append('file', document.getElementsByClassName('new-pdf')[0].files[0]);
     formData.append('version', $('.new-version').val());
     formData.append('subject', $('.new-subject').val());
+    formData.append('site', $('.new-site').val());
     formData.append('revisedate', $('.new-revisedate').val());    
     var request = new XMLHttpRequest();
     request.open('POST', '/termcondition/term_add');        
@@ -59,7 +89,7 @@
     $.ajax({
       url: '/termcondition/term_load',
       type: 'POST',
-      data: {        
+      data: {
       },
       success: function(res) {
         $('.lds-spinner').fadeOut();
@@ -71,6 +101,7 @@
               res.list[i].ver,
               res.list[i].sub,
               res.list[i].revisedate,
+              getSiteName(res.list[i].site),
               `<a target="_blank" class="btn btn-success btn-sm" href="/termcondition/download/detail?name=`+res.list[i].filename+`">Download</a>`,
             ]);
           }          
@@ -99,6 +130,7 @@
           $('.update-version').val($($(this).find('td')[0]).html());
           $('.update-subject').val($($(this).find('td')[1]).html());
           $('.update-revisedate').val($($(this).find('td')[2]).html());
+          $('.update-site').val(getSite($($(this).find('td')[3]).html())).trigger('change');
           $('.update-pdf').val();
           $('.old-id').val(term_list[i].id);
           break;
@@ -112,7 +144,8 @@
     formData.append('file', document.getElementsByClassName('update-pdf')[0].files[0]);
     formData.append('version', $('.update-version').val());
     formData.append('subject', $('.update-subject').val());    
-    formData.append('revisedate', $('.update-revisedate').val());    
+    formData.append('revisedate', $('.update-revisedate').val());
+    formData.append('site', $('.update-site').val());
     formData.append('oldid', $('.old-id').val());
     var request = new XMLHttpRequest();
     request.open('POST', '/termcondition/term_update');        

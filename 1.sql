@@ -30,21 +30,17 @@ CREATE TABLE `auth` (
   `status` int(1) DEFAULT '1',
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 /*Data for the table `auth` */
 
 insert  into `auth`(`id`,`user`,`page`,`r`,`w`,`d`,`status`,`create_at`) values 
-(1,'363c5c7e-082c-4c95-b7fd-32843deeb7b7',6,1,1,1,1,'2018-06-25 09:58:06'),
-(2,'363c5c7e-082c-4c95-b7fd-32843deeb7b7',1,1,1,1,1,'2018-06-25 10:25:34'),
-(4,'363c5c7e-082c-4c95-b7fd-32843deeb7b7',5,1,1,1,1,'2018-06-25 12:27:00'),
-(5,'0a24cf2e-e819-4a8d-97e4-298e29c70374',5,1,0,0,1,'2018-06-25 17:19:26'),
-(6,'0a24cf2e-e819-4a8d-97e4-298e29c70374',1,1,1,1,1,'2018-06-26 12:20:33'),
-(7,'3413002b-dbda-47e3-a09c-e4c67c857951',1,1,1,1,0,'2018-06-26 13:11:38'),
-(8,'3413002b-dbda-47e3-a09c-e4c67c857951',5,1,1,1,0,'2018-06-26 13:11:42'),
-(9,'a2d57b4d-e921-463e-aba5-5c04bfc9dcf0',1,1,1,1,1,'2018-06-26 13:22:48'),
-(10,'d5bb9f82-dcd4-4811-833a-174747751640',1,1,1,1,1,'2018-06-26 19:50:56'),
-(11,'d5bb9f82-dcd4-4811-833a-174747751640',5,1,0,0,1,'2018-06-26 19:51:02');
+(14,'6ed8457b-bc35-473b-9037-11fb38bafdb8',6,1,1,1,1,'2018-06-28 07:58:30'),
+(15,'6ed8457b-bc35-473b-9037-11fb38bafdb8',1,1,1,1,1,'2018-06-28 07:58:42'),
+(16,'6ed8457b-bc35-473b-9037-11fb38bafdb8',5,1,1,1,1,'2018-06-28 07:58:46'),
+(17,'de4facc2-eed4-492f-94d9-e3e64bbb084a',1,1,1,1,1,'2018-06-28 05:43:24'),
+(18,'de4facc2-eed4-492f-94d9-e3e64bbb084a',5,1,1,1,1,'2018-06-28 05:43:28'),
+(19,'de4facc2-eed4-492f-94d9-e3e64bbb084a',6,1,1,1,1,'2018-06-28 05:43:33');
 
 /*Table structure for table `dato` */
 
@@ -63,16 +59,6 @@ CREATE TABLE `dato` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 /*Data for the table `dato` */
-
-insert  into `dato`(`id`,`usrid`,`name`,`title`,`nombre`,`categoria`,`descripcion`,`precio`) values 
-(11,'a2d57b4d-e921-463e-aba5-5c04bfc9dcf0','2u2qw4jivtc8r5.pdf','1.pdf',NULL,NULL,NULL,NULL),
-(12,'a2d57b4d-e921-463e-aba5-5c04bfc9dcf0','2u2rfojivteh6f.jpg','1.jpg',NULL,NULL,NULL,NULL),
-(13,'a2d57b4d-e921-463e-aba5-5c04bfc9dcf0','2u2mtkjivtf7a3.pdf','1.pdf',NULL,NULL,NULL,NULL),
-(14,'0a24cf2e-e819-4a8d-97e4-298e29c70374','23ecskjivu3dtv.JPEG','ASTU3491.JPEG',NULL,NULL,NULL,NULL),
-(15,'d5bb9f82-dcd4-4811-833a-174747751640','23ecskjivyg0ue.pdf','Chart.pdf',NULL,NULL,NULL,NULL),
-(16,'d5bb9f82-dcd4-4811-833a-174747751640','23ecskjivygbyd.jpg','mens.jpg',NULL,NULL,NULL,NULL),
-(17,'d5bb9f82-dcd4-4811-833a-174747751640','23ecskjivygbzq.jpg','defect5.jpg',NULL,NULL,NULL,NULL),
-(18,'a2d57b4d-e921-463e-aba5-5c04bfc9dcf0','2u2wqwjiwknj7u.JPEG','ASTU3491.JPEG','','','asdfasdf','asdfasdf');
 
 /*Table structure for table `empresa` */
 
@@ -96,12 +82,6 @@ CREATE TABLE `empresa` (
 
 /*Data for the table `empresa` */
 
-insert  into `empresa`(`id`,`empresa`,`nit`,`tipo`,`numero`,`folio`,`libro`,`nombre`,`ddmmaa`,`direccion`,`documento`,`usrid`) values 
-(1,'2','1','1','1','1','1','1','1','1','1','363c5c7e-082c-4c95-b7fd-32843deeb7b7'),
-(3,'1','1','1','','','1','','','','','a2d57b4d-e921-463e-aba5-5c04bfc9dcf0'),
-(4,'12','12','','','','','','','','','0a24cf2e-e819-4a8d-97e4-298e29c70374'),
-(5,'Miugodo, S.A.','21398127','Probar','235234','A','32','Bryan Cho','31/01/79','zona14, edificio santorini, 23523-23, Guatemala','zona14, edificio santorini, 23523-23, Guatemala','d5bb9f82-dcd4-4811-833a-174747751640');
-
 /*Table structure for table `invoice` */
 
 DROP TABLE IF EXISTS `invoice`;
@@ -122,12 +102,6 @@ CREATE TABLE `invoice` (
 
 /*Data for the table `invoice` */
 
-insert  into `invoice`(`id`,`payment`,`amount`,`transfer`,`receipt`,`invoice`,`invoicedate`,`total`,`usrid`,`filename`) values 
-(2,'2','1','2','1','1','2018-06-26','2','a2d57b4d-e921-463e-aba5-5c04bfc9dcf0','2c8w7rrk9cjivow4qj.pdf'),
-(3,'1','1','1','1','1','2018-06-26','1','0a24cf2e-e819-4a8d-97e4-298e29c70374','2c8w7rrfi8jivn7146.pdf'),
-(4,'123','1000','234234','23523','12312','2018-06-26','21421','d5bb9f82-dcd4-4811-833a-174747751640','23ecskjivxszrl.pdf'),
-(5,'32423','3223','23423','23423','234','2018-06-28','213','d5bb9f82-dcd4-4811-833a-174747751640','23ecskjivxtqma.pdf');
-
 /*Table structure for table `publicidad` */
 
 DROP TABLE IF EXISTS `publicidad`;
@@ -147,13 +121,9 @@ CREATE TABLE `publicidad` (
   `tarjeta` varchar(50) DEFAULT NULL,
   `usrid` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `publicidad` */
-
-insert  into `publicidad`(`id`,`empresa`,`tel`,`tipo`,`descanso`,`servicio`,`direccion`,`domicilio`,`presentacion`,`confirmacion`,`minimo`,`tarjeta`,`usrid`) values 
-(1,'1','1','1','1','1','1','1','','','12','','363c5c7e-082c-4c95-b7fd-32843deeb7b7'),
-(2,'Pollo Campero','23423423','Hamburger','1 de cada mes','9:00~19:00, Sabado 9:00 a 15:00','zona14','Zona 7, 8, 9, 10','Probar','si','100','Credito','d5bb9f82-dcd4-4811-833a-174747751640');
 
 /*Table structure for table `publish` */
 
@@ -166,11 +136,6 @@ CREATE TABLE `publish` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `publish` */
-
-insert  into `publish`(`id`,`usrid`) values 
-(1,'0a24cf2e-e819-4a8d-97e4-298e29c70374'),
-(2,'a2d57b4d-e921-463e-aba5-5c04bfc9dcf0'),
-(3,'d5bb9f82-dcd4-4811-833a-174747751640');
 
 /*Table structure for table `representante` */
 
@@ -187,11 +152,6 @@ CREATE TABLE `representante` (
 
 /*Data for the table `representante` */
 
-insert  into `representante`(`id`,`nombre`,`dpi`,`tel`,`usrid`) values 
-(1,'2','1','1','363c5c7e-082c-4c95-b7fd-32843deeb7b7'),
-(2,'1','1','1','0a24cf2e-e819-4a8d-97e4-298e29c70374'),
-(3,'Alex Gonzales','23423948','53530019','d5bb9f82-dcd4-4811-833a-174747751640');
-
 /*Table structure for table `resettoken` */
 
 DROP TABLE IF EXISTS `resettoken`;
@@ -201,12 +161,12 @@ CREATE TABLE `resettoken` (
   `userid` varchar(100) DEFAULT NULL,
   `token` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `resettoken` */
 
 insert  into `resettoken`(`id`,`userid`,`token`) values 
-(1,'d5bb9f82-dcd4-4811-833a-174747751640','$2a$08$R9MzVgDn/UYu1jeKzDSueeHosTRixfDb/gFH/bGAkzTEdlGTYSfUa');
+(4,'de4facc2-eed4-492f-94d9-e3e64bbb084a','$2a$08$Eve6l.lB38SmMy4nELkraOgwZr30sCxEKD7y4clNfWROh0gV1q7Fy');
 
 /*Table structure for table `terms` */
 
@@ -217,15 +177,15 @@ CREATE TABLE `terms` (
   `ver` varchar(30) NOT NULL,
   `sub` varchar(50) NOT NULL,
   `revisedate` varchar(30) NOT NULL,
+  `site` tinyint(1) DEFAULT '-1',
   `filename` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 /*Data for the table `terms` */
 
-insert  into `terms`(`id`,`ver`,`sub`,`revisedate`,`filename`) values 
-(2,'1.0.2','How to use','2018-06-25','2u2e90jiu62mn4.pdf'),
-(3,'1.0.1','How to use','2018-06-25','2u21h8jiu65gt9.pdf');
+insert  into `terms`(`id`,`ver`,`sub`,`revisedate`,`site`,`filename`) values 
+(7,'1.00.0','Términos y condiciones para Restaurante','2018-06-27',-1,'23eisdjiy0v25x.pdf');
 
 /*Table structure for table `token` */
 
@@ -236,12 +196,12 @@ CREATE TABLE `token` (
   `userid` varchar(100) DEFAULT NULL,
   `token` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `token` */
 
 insert  into `token`(`id`,`userid`,`token`) values 
-(1,'363c5c7e-082c-4c95-b7fd-32843deeb7b7','$2a$08$1xtsl/LyKoiBmLh2J26hoeu5Y.RbzUZMUDJQDKphei26oB9nwTBM6');
+(2,'6ed8457b-bc35-473b-9037-11fb38bafdb8','$2a$08$.s0Cx45wKQNc6eozwWexfeHyRTEivQKSQEv4UjI/TycnBjCEedPeG');
 
 /*Table structure for table `transferencia` */
 
@@ -259,10 +219,6 @@ CREATE TABLE `transferencia` (
 
 /*Data for the table `transferencia` */
 
-insert  into `transferencia`(`id`,`banco`,`cuenta_numero`,`cuenta_nombre`,`pago`,`usrid`) values 
-(1,'2','1','1','1','363c5c7e-082c-4c95-b7fd-32843deeb7b7'),
-(2,'BAC','32984723','Kyusang Cho','10, 20, 30','d5bb9f82-dcd4-4811-833a-174747751640');
-
 /*Table structure for table `users` */
 
 DROP TABLE IF EXISTS `users`;
@@ -277,6 +233,7 @@ CREATE TABLE `users` (
   `acceptdate` varchar(30) DEFAULT NULL,
   `type` tinyint(1) DEFAULT '0',
   `status` tinyint(1) DEFAULT '1',
+  `site` tinyint(1) DEFAULT '-1',
   `active` tinyint(1) DEFAULT '0',
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -284,11 +241,9 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`email`,`password`,`firstname`,`lastname`,`contractdate`,`acceptdate`,`type`,`status`,`active`,`create_at`) values 
-('0a24cf2e-e819-4a8d-97e4-298e29c70374','bader@test.com','$2a$08$ApQJU74.LClD5Y/qB4sETuSKCXiVtRnkePuMCWr4POaxKx9Wds6nS','Bader','Al','2018-06-26','2018-06-26',0,0,0,'2018-06-25 17:19:12'),
-('363c5c7e-082c-4c95-b7fd-32843deeb7b7','monitor@admin.com','$2a$08$Kg8xuYXzZynPx9tXSBqJAeUo3UHNfS4SvsuTjLUYQrjQZ.Zu15N7y','Admin','Admin',NULL,NULL,1,1,0,'2018-06-25 09:23:01'),
-('a2d57b4d-e921-463e-aba5-5c04bfc9dcf0','bader@test2.com','$2a$08$gpLv9nKjK6WofFoCOng1Cu14KeTJLNFjGH.Ah6gFqFTJ55Nxln6rC','Test','Test','2018-06-26','2018-06-26',0,1,0,'2018-06-26 13:18:21'),
-('d5bb9f82-dcd4-4811-833a-174747751640','bryancho31@gmail.com','$2a$08$mJ4KHayE4gEoOZrKLCG9gu1Y8DFmvpNVpowXcoMgw0M40TFqBuJKy','Bryan','Cho','2018-06-16',NULL,0,1,0,'2018-06-26 19:48:18');
+insert  into `users`(`id`,`email`,`password`,`firstname`,`lastname`,`contractdate`,`acceptdate`,`type`,`status`,`site`,`active`,`create_at`) values 
+('6ed8457b-bc35-473b-9037-11fb38bafdb8','monitor@admin.com','$2a$08$YjWUFLBRNqwYTHsz6VIcw..yTEMmVmcMwkivjXL5BaQC7rixwT3OC',NULL,NULL,NULL,NULL,1,1,-1,0,'2018-06-28 07:57:47'),
+('de4facc2-eed4-492f-94d9-e3e64bbb084a','bryancho31@gmail.com','$2a$08$cQKNjBqyflKiF/0EPgXOYeESwuehJu2TisQAQyRwuKDVoI6FIvXNS','Bryan','Cho','2018-06-27',NULL,0,1,0,0,'2018-06-28 05:43:18');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -19,6 +19,7 @@
       });
 
     $('.type-bar').select2();
+    $('.site-bar').select2();
     $('.status-bar').select2();
     $('.contractdate').datetimepicker({
       format: 'YYYY-MM-DD',
@@ -41,6 +42,7 @@
     let email = $('.email').val();
     let contractdate = $('.contractdate').val();
     let type = $('.type-bar').val();
+    let site = $('.site-bar').val();
     let status = $('.status-bar').val();
     
     $.ajax({
@@ -52,6 +54,7 @@
         email: email,
         contractdate: contractdate,
         type: Number(type),
+        site: Number(site),
         status: Number(status)
       },
       success: function(data){
@@ -64,6 +67,7 @@
             email,
             contractdate,
             $('.type-bar').select2('data')[0].text,
+            $('.site-bar').select2('data')[0].text,
             $('.status-bar').select2('data')[0].text,
           ]);
           $('.user-table').dataTable().fnAddData(tableData);

@@ -11,19 +11,19 @@ block content
               .panel-body
                 form.update-user-form(action='/users/user_update' method='post')
                   input.oldemail(type='hidden', placeholder='Email', required='', value='#{usr.email}' name='oldemail')                  
-                  .form-group.clearfix.col-md-4
+                  .form-group.clearfix.col-md-3
                     label.display-block #{__("First Name")}
                     input.form-control.firstname(type='text', placeholder='Name', required='', value='#{usr.firstname}', name='firstname')
-                  .form-group.clearfix.col-md-4
+                  .form-group.clearfix.col-md-3
                     label.display-block #{__("Last Name")}
                     input.form-control.lastname(type='text', placeholder='Name', required='', value='#{usr.lastname}', name='lastname')
-                  .form-group.clearfix.col-md-4
+                  .form-group.clearfix.col-md-3
                     label.display-block #{__("Email")}
                     input.form-control.email(type='email', placeholder='Email', required='', value='#{usr.email}', name='email')
-                  .form-group.clearfix.col-md-4
+                  .form-group.clearfix.col-md-3
                     label.display-block Fecha Contrato
                     input.form-control.contractdate(type='text', placeholder='Contact Date', value='#{usr.contractdate}')
-                  .form-group.clearfix.col-md-4
+                  .form-group.clearfix.col-md-3
                     label.display-block #{__("User Type")}
                     select.type-bar(style='width: 100%;', name='type')
                       - if(usr.type == 1){
@@ -33,7 +33,41 @@ block content
                         option(value='0' selected) Normal
                         option(value='1') Admin
                       - }
-                  .form-group.clearfix.col-md-4
+                  .form-group.clearfix.col-md-3
+                    label.display-block Site
+                    select.site-bar(style='width: 100%;')
+                      - if(usr.site == 0) {
+                          option(value='-1') Not Selected
+                          option(value='0' selected) Miugodo
+                          option(value='1') Envio
+                          option(value='2') Magicespejo
+                          option(value='3') Otratierra
+                      - } else if(usr.site == 1) {
+                          option(value='-1') Not Selected
+                          option(value='0') Miugodo
+                          option(value='1' selected) Envio
+                          option(value='2') Magicespejo
+                          option(value='3') Otratierra
+                      - } else if(usr.site == 2) {
+                          option(value='-1') Not Selected
+                          option(value='0') Miugodo
+                          option(value='1') Envio
+                          option(value='2' selected) Magicespejo
+                          option(value='3') Otratierra
+                      - } else if(usr.site == 3) {
+                          option(value='-1') Not Selected
+                          option(value='0') Miugodo
+                          option(value='1') Envio
+                          option(value='2') Magicespejo
+                          option(value='3' selected) Otratierra
+                      - } else {
+                          option(value='-1' selected) Not Selected
+                          option(value='0') Miugodo
+                          option(value='1') Envio
+                          option(value='2') Magicespejo
+                          option(value='3') Otratierra
+                      - }
+                  .form-group.clearfix.col-md-3
                     label.display-block #{__("Status")}
                     select.status-bar(style='width: 100%;', name='status')
                       - if(usr.status == 1){

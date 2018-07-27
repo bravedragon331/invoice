@@ -12,6 +12,7 @@
       });
 
     $('.page-bar').select2();
+    $('.site-bar').select2();
     $('.status-bar').select2();
     $('.read').select2();
     $('.write').select2();
@@ -175,6 +176,7 @@
         lastname: $('.lastname').val(),
         email: $('.email').val(),
         contractdate: $('.contractdate').val(),
+        site: $('.site-bar').val(),
         type: Number($('.type-bar').val()),
         status: Number($('.status-bar').val())
       },

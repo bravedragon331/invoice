@@ -8,35 +8,51 @@ block content
         .panel-heading #{__("Create New Term")}
         .panel-body
           form.add-form(action='/termcondtion/term_add' method='post')
-            .form-group.col-md-3
+            .form-group.col-md-2
               label.display-block #{__("Version")}
               input.form-control.new-version(type='text', placeholder='Version', required='')
-            .form-group.col-md-3
+            .form-group.col-md-2
               label.display-block #{__("Subject")}
               input.form-control.new-subject(type='text', placeholder='Subject', required='')
-            .form-group.col-md-3
+            .form-group.col-md-2
               label.display-block #{__("Revised Date")}
               input.form-control.new-revisedate(type='text', placeholder='Revised Date', required='')
-            .form-group.col-md-3
+            .form-group.col-md-2
+              label.display-block Site
+              select.new-site(style='width: 100%;')
+                option(value='-1') Not Selected
+                option(value='0') Miugodo
+                option(value='1') Envio
+                option(value='2') Magicespejo
+                option(value='3') Otratierra
+            .form-group.col-md-2
               label.display-block #{__("File")}
               input.form-control.new-pdf(type='file', accept=".pdf", placeholder='Choose File', required='')
-            .form-group.clearfix.col-md-12
-              button.btn.btn-sm.btn-success.pull-right(type='submit') #{__("Add Term")}
+            .form-group.col-md-2
+              button.btn.btn-sm.btn-success.pull-right(type='submit', style="margin-top: 30px;") #{__("Add Term")}
       .panel.panel-default.update-term(style='display:none')
         .panel-heading #{__("Update Term")}
         .panel-body
           form.update-form(action='/termcondtion/term_update' method='post')
             input.old-id(type='hidden', required)
-            .form-group.col-md-3
+            .form-group.col-md-2
               label.display-block #{__("Version")}
               input.form-control.update-version(type='text', placeholder='Version', required='')
-            .form-group.col-md-3
+            .form-group.col-md-2
               label.display-block #{__("Subject")}
               input.form-control.update-subject(type='text', placeholder='Subject', required='')
-            .form-group.col-md-3
+            .form-group.col-md-2
               label.display-block #{__("Revised Date")}
               input.form-control.update-revisedate(type='text', placeholder='Revised Date', required='')
-            .form-group.col-md-3
+            .form-group.col-md-2
+              label.display-block Site
+              select.update-site(style='width: 100%;')
+                option(value='-1') Not Selected
+                option(value='0') Miugodo
+                option(value='1') Envio
+                option(value='2') Magicespejo
+                option(value='3') Otratierra
+            .form-group.col-md-2
               label.display-block #{__("File")}
               input.form-control.update-pdf(type='file', accept=".pdf", placeholder='Choose File', required='')
             .form-group.clearfix.col-md-12              
@@ -59,6 +75,7 @@ block content
                 th Versión
                 th Sujeto
                 th Fetcha revisada
+                th Site
                 th Descargar documento
             tbody              
 block script

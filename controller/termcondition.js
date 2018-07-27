@@ -73,7 +73,8 @@ exports.term_update = function(req, res) {
   });
 }
 exports.term_load = function(req, res) {
-  Terms.loadTerms(function(err, rows) {
+  console.log(req.user);
+  Terms.loadTerms(req.user.type == 1?-1:req.user.site, function(err, rows) {
     if(err) {
       res.json({status: false});
     } else {

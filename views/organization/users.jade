@@ -8,13 +8,13 @@ block content
         .panel-heading #{__("Create New User")}
         .panel-body
           form.add-form(action='/users/user_add' method='post')            
-            .form-group.clearfix.col-md-4
+            .form-group.clearfix.col-md-3
               label.display-block #{__("First Name")}
               input.form-control.firstname(type='text', placeholder='First Name', required='')
-            .form-group.clearfix.col-md-4
+            .form-group.clearfix.col-md-3
               label.display-block #{__("Last Name")}
               input.form-control.lastname(type='text', placeholder='Last Name', required='')
-            .form-group.clearfix.col-md-4
+            .form-group.clearfix.col-md-3
               label.display-block #{__("Email")}
               input.form-control.email(type='email', placeholder='Email', required='')
             //- .form-group.clearfix.col-md-3
@@ -23,15 +23,23 @@ block content
             //- .form-group.clearfix.col-md-3
             //-   label.display-block #{__("NIT#")}
             //-   input.form-control.nit(type='text', placeholder='NIT#')
-            .form-group.clearfix.col-md-4
+            .form-group.clearfix.col-md-3
               label.display-block Fecha Contrato
               input.form-control.contractdate(type='text', placeholder='Contact Date')
-            .form-group.clearfix.col-md-4
+            .form-group.clearfix.col-md-3
               label.display-block #{__("User Type")}
               select.type-bar(style='width: 100%;')
                 option(value='0') Normal
                 option(value='1') Admin
-            .form-group.clearfix.col-md-4
+            .form-group.clearfix.col-md-3
+              label.display-block Site
+              select.site-bar(style='width: 100%;')
+                option(value='-1') Not Selected
+                option(value='0') Miugodo
+                option(value='1') Envio
+                option(value='2') Magicespejo
+                option(value='3') Otratierra
+            .form-group.clearfix.col-md-3
               label.display-block #{__("Status")}
               select.status-bar(style='width: 100%;')
                 option(value='1') Active
@@ -56,6 +64,7 @@ block content
                 th #{__("Email")}
                 th Fecha Contrato
                 th #{__("User Type")}
+                th Site
                 th #{__("Status")}
             tbody
               - for (var i = 0; i < users.length; ++i) {
@@ -64,7 +73,8 @@ block content
                     td #{users[i].lastname}                    
                     td #{users[i].email}
                     td #{users[i].contractdate}
-                    td #{users[i].type?'Admin': 'Normal'}                    
+                    td #{users[i].type?'Admin': 'Normal'}
+                    td #{users[i].site==0?'Miugodo':users[i].site==1?'Envio':users[i].site==2?'Magicespejo':users[i].site==3?'Otratierra':''}
                     td #{users[i].status?'Active':'In-Active'}
               - }              
 block script

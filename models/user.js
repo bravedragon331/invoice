@@ -31,20 +31,20 @@ var validPassword = function(password, savedPassword) {
 
 // Create a new user
 // callback(err, newUser)
-var createUser = function(firstname, lastname, email, password, type = 0, status = 0, contractdate, callback) {
+var createUser = function(firstname, lastname, email, password, type = 0, site, status = 0, contractdate, callback) {
   var newUser = {
     id: generateUserId(),
     email: email,
     password: hashPassword(password)
   };
   
-  db.query('INSERT INTO users ( id, firstname, lastname, email, password, type, status, contractdate ) values (?,?,?,?,?,?,?,?)',
-    [newUser.id, firstname, lastname, email, newUser.password, type, status, contractdate],
+  db.query('INSERT INTO users ( id, firstname, lastname, email, password, type, site, status, contractdate ) values (?,?,?,?,?,?,?,?,?)',
+    [newUser.id, firstname, lastname, email, newUser.password, type, site, status, contractdate],
     function(err) {
       if (err) {
         if (err.code === 'ER_DUP_ENTRY') {
           // If we somehow generated a duplicate user id, try again
-          return createUser(firstname, lastname, email, password, type, status, contractdate, callback);
+          return createUser(firstname, lastname, email, password, type, site, status, contractdate, callback);
         }
         return callback(err);
       }
@@ -69,7 +69,7 @@ var signup = function(req, email, password, callback) {
       // No user exists, create the user
       //[newUser.id, newUser.email, newUser.password, req.body.FirstName, req.body.LastName, req.body.Department, req.body.PhoneNumber, false],
       //factory, department, line, name, position, email, password, phone, type, status
-      return createUser(req.body.FirstName, req.body.LastName, email, password, 0, 1, req.body.contractdate, callback);
+      return createUser(req.body.FirstName, req.body.LastName, email, password, 0, -1, 1, req.body.contractdate, callback);
     }
   });
 };
@@ -113,7 +113,7 @@ var addUser = function(body, callback){
       return callback(null, false);
     } else {
       // No user exists, create the user
-      return createUser(body.firstname, body.lastname, body.email,'12345', body.type, body.status, body.contractdate, callback);
+      return createUser(body.firstname, body.lastname, body.email,'12345', body.type, body.site, body.status, body.contractdate, callback);
     }
   });
 }
@@ -161,7 +161,7 @@ var updateUserInfo = function(data, callback){
   db.query('UPDATE users SET ? WHERE email = ?', 
     [{
       email: data.email, firstname: data.firstname, lastname: data.lastname,
-      type: data.type, status: data.status, contractdate: data.contractdate
+      type: data.type, site: data.site, status: data.status, contractdate: data.contractdate
     }, data.oldemail], function(err, user){
     if (err)
       return callback(err);
